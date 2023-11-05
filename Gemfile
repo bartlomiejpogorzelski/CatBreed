@@ -10,6 +10,7 @@ gem 'puma', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'sprockets-rails'
 gem 'tailwindcss-rails'
+gem 'haml'
 group :development do
   gem "web-console"
   gem "listen"
