@@ -9,7 +9,7 @@ gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'sprockets-rails'
-
+gem 'tailwindcss-rails'
 group :development do
   gem "web-console"
   gem "listen"
