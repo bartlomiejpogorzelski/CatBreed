@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'sprockets-rails'
 gem 'tailwindcss-rails'
 gem 'haml'
+gem 'view_component'
+
 group :development do
   gem "web-console"
   gem "listen"
