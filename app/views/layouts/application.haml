@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title CatBreed
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag 'application', media: 'all'
+    -# = javascript_importmap_tags
+
+  %body.bg-grey-3
+    = render NavBarComponent.new
+    = yield
+
+    
+-# <%= stylesheet_link_tag 'application', media: 'all' %>
+  <body>
+    <main class="mx-auto mt-28 px-5 relative">
+    <div class="flex justify-evenly"><%= yield %></div>
+  </main>
+  </body>
