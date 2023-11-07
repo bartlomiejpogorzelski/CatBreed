@@ -13,6 +13,7 @@ gem 'tailwindcss-rails'
 gem 'haml'
 gem 'view_component'
 gem 'rails-i18n'
+gem 'faker'
 
 group :development do
   gem "web-console"
