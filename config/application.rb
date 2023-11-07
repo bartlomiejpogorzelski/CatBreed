@@ -35,5 +35,7 @@ module CatBreed
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.generators.template_engine = :haml
+    config.i18n.available_locales = %i[pl en]
+    config.i18n.default_locale = :pl
   end
 end
