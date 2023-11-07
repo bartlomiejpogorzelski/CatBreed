@@ -1,0 +1,24 @@
+.text-center.p-8
+  %h2.font-bold.text-2xl.sm:text-3xl.md:text-4xl.lg:text-5xl
+    Nasze Kociaki
+  -cats.each_with_index do |cat, index|
+    - if index.odd?
+      .flex.flex-wrap.items-center.mt-20.text-left.text-center
+        .w-full.px-4{class: "md:w-3/5 lg:w-1/2"}
+          %img.inline-block.rounded.shadow-lg.border.border-merino-400{alt: "gem", src: "https://picsum.photos/400/240"}/
+        .w-full.px-4.text-center.md:text-left.lg:pl-12{class: "md:w-2/5 lg:w-1/2"}
+          %h3.font-bold.mt-8.text-xl.md:mt-0.sm:text-2xl
+            =cat.name
+          %p.sm:text-lg.mt-6
+            %span.font-bold Data urodzenia:
+            =cat.date_of_birth
+    -else
+      .flex.flex-wrap.items-center.mt-20.text-left.text-center
+        .w-full.px-4{class: "md:w-3/5 lg:w-1/2"}
+          %img.inline-block.rounded.shadow-lg.border.border-merino-400{alt: "project members", src: "https://picsum.photos/400/240"}/
+        .w-full.px-4.md:order-first.text-center.md:text-left.lg:pr-12{class: "md:w-2/5 lg:w-1/2"}
+          %h3.font-bold.mt-8.text-xl.md:mt-0.sm:text-2xl
+            =cat.name
+          %p.sm:text-lg.mt-6
+            %span.font-bold Data urodzenia:
+            =cat.date_of_birth
