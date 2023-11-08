@@ -1,0 +1,77 @@
+= form_for @cat, url: admin_cats_path do |f|
+  - if @cat.errors.any?
+    .alert.alert-danger
+      %h4 Error(s) occurred:
+      %ul
+        - @cat.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :breed
+    = f.text_field :breed, class: 'form-control'
+
+  .form-group
+    = f.label :color
+    = f.text_field :color, class: 'form-control'
+
+  .form-group
+    = f.label :date_of_birth
+    = f.date_field :date_of_birth, class: 'form-control'
+
+  .form-group
+    = f.label :gender
+    = f.text_field :gender, class: 'form-control'
+
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+
+  .form-group
+    = f.label :images
+    = f.text_field :images, class: 'form-control'
+
+  .form-group
+    = f.label :pedigree_information
+    = f.text_field :pedigree_information, class: 'form-control'
+
+  .form-group
+    = f.label :price
+    = f.number_field :price, class: 'form-control'
+
+  .form-group
+    = f.label :status
+    = f.text_field :status, class: 'form-control'
+
+  .form-group
+    = f.label :vaccination_information
+    = f.text_field :vaccination_information, class: 'form-control'
+
+  .form-group
+    = f.label :health_status
+    = f.text_field :health_status, class: 'form-control'
+
+  .form-group
+    = f.label :owner_information
+    = f.text_field :owner_information, class: 'form-control'
+
+  .form-group
+    = f.label :location
+    = f.text_field :location, class: 'form-control'
+
+  .form-group
+    = f.label :neutered
+    = f.check_box :neutered, class: 'form-check-input'
+
+  .form-group
+    = f.label :notes
+    = f.text_area :notes, class: 'form-control'
+
+  .form-group
+    = f.label :videos
+    = f.text_field :videos, class: 'form-control'
+
+  = f.submit 'Create Cat', class: 'btn btn-primary'

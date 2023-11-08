@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   scope module: "kittens" do
     resources :kittens
   end
-  get "/admin", to: "admin#index"
+  namespace :admin do
+    resources :cats, only: [:index, :new, :create]
+  end
 end
