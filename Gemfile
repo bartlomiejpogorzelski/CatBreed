@@ -15,6 +15,7 @@ gem 'view_component'
 gem 'rails-i18n'
 gem 'faker'
 gem "devise", github: "heartcombo/devise", branch: "main"
+gem 'cancancan'
 
 group :development do
   gem "web-console"
