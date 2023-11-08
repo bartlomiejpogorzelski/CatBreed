@@ -26,6 +26,7 @@ group :development, :test do
   gem "database_cleaner"
   gem "rspec-rails"
   gem "pg_query"
+  gem "pry", " ~> 0.14.1"
 end
 
 group :test do
