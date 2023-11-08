@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_180950) do
     t.boolean "neutered"
     t.text "notes"
     t.string "videos"
+    t.boolean "is_parent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

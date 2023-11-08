@@ -23,6 +23,7 @@
     location: Faker::Address.city,
     neutered: [true, false].sample,
     notes: Faker::Lorem.paragraph,
+    is_parent: [true, false].sample
     # videos: 'kitten_video.mp4' 
   )
 end

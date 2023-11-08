@@ -18,6 +18,7 @@ class CreateCats < ActiveRecord::Migration[7.0]
       t.boolean :neutered
       t.text :notes
       t.string :videos
+      t.boolean :is_parent
 
       t.timestamps
     end
