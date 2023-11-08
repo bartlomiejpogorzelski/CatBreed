@@ -26,3 +26,6 @@
     # videos: 'kitten_video.mp4' 
   )
 end
+
+User.create!(email: "user@example.com", password: "123456", password_confirmation: "123456")
+User.create!(email: "admin@example.com", password: "123456", password_confirmation: "123456", role: 1)
