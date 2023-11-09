@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cats, only: [:index, :new, :create]
   end
+
+  resources :contact_form, only: %i[new create]
 end
