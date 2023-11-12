@@ -16,6 +16,7 @@ gem 'rails-i18n'
 gem 'faker'
 gem "devise", github: "heartcombo/devise", branch: "main"
 gem 'cancancan'
+gem 'shrine'
 
 group :development do
   gem "web-console"

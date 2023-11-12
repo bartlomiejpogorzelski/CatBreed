@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_07_180950) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_12_204045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_180950) do
     t.date "date_of_birth"
     t.string "gender"
     t.text "description"
-    t.string "images"
+    t.jsonb "images_data"
     t.string "pedigree_information"
     t.decimal "price"
     t.string "status"
@@ -33,6 +33,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_180950) do
     t.text "notes"
     t.string "videos"
     t.boolean "is_parent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "title"
+    t.text "image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,4 +1,4 @@
-= form_for @cat, url: admin_cats_path do |f|
+= form_for @cat, url: admin_cats_path, html: { multipart: true } do |f|
   - if @cat.errors.any?
     .alert.alert-danger
       %h4 Error(s) occurred:
@@ -32,7 +32,7 @@
 
   .form-group
     = f.label :images
-    = f.text_field :images, class: 'form-control'
+    = f.file_field :images, class: 'form-control', multiple: true
 
   .form-group
     = f.label :pedigree_information

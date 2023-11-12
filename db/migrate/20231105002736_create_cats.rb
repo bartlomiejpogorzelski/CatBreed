@@ -7,7 +7,7 @@ class CreateCats < ActiveRecord::Migration[7.0]
       t.date :date_of_birth
       t.string :gender
       t.text :description
-      t.string :images
+      t.jsonb :images_data
       t.string :pedigree_information
       t.decimal :price
       t.string :status
