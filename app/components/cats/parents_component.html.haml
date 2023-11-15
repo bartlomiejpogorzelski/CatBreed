@@ -1,1 +1,14 @@
-%div Add Cats::Parents template here
+.text-center.p-8
+  %h2.font-bold.text-2xl.sm:text-3xl.md:text-4xl.lg:text-5xl
+    Rodzice kotów:
+  -cats.each do |cat|    
+    .flex.flex-wrap.items-center.mt-20.text-left.text-center
+      .w-full.px-4{class: "md:w-3/5 lg:w-1/2"}
+        %a{:href => parent_path(cat)}
+          %img.inline-block.rounded.shadow-lg.border.border-merino-400{alt: "parent cat", src: cat&.photos&.first&.image_url}/
+      .w-full.px-4.text-center.md:text-left.lg:pl-12{class: "md:w-2/5 lg:w-1/2"}
+        %h3.font-bold.mt-8.text-xl.md:mt-0.sm:text-2xl
+          = link_to cat.name, parent_path(cat)
+        %p.sm:text-lg.mt-6
+          %span.font-bold Data urodzenia:
+          =cat.date_of_birth
