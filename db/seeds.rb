@@ -13,7 +13,7 @@
     date_of_birth: Faker::Date.birthday(min_age: 1, max_age: 15),
     gender: ['Male', 'Female'].sample,
     description: Faker::Lorem.paragraph,
-    # images: 'kitten.jpg', 
+    photos: [Photo.new(image: Rack::Test::UploadedFile.new("app/assets/images/cat1.png"))], 
     pedigree_information: Faker::Lorem.sentence,
     price: Faker::Commerce.price(range: 50..500.0, as_string: true),
     status: ['Available', 'Reserved', 'Sold'].sample,
