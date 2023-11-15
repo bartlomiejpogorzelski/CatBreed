@@ -1,3 +1,4 @@
 class Photo < ApplicationRecord
-  include ImageUploader::Attachment(:image) # adds an `image` virtual attribute
+  include ImageUploader::Attachment(:image)
+  belongs_to :cat
 end

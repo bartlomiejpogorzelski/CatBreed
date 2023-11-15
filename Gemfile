@@ -17,6 +17,7 @@ gem 'faker'
 gem "devise", github: "heartcombo/devise", branch: "main"
 gem 'cancancan'
 gem 'shrine'
+gem "image_processing", "~> 1.0"
 
 group :development do
   gem "web-console"

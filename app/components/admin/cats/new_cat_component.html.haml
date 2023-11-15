@@ -31,8 +31,13 @@
     = f.text_area :description, class: 'form-control'
 
   .form-group
-    = f.label :images
-    = f.file_field :images, class: 'form-control', multiple: true
+    = f.fields_for :photos do |photo_form|
+      .nested-fields
+        - (1..3).each do |i|
+          = photo_form.label "image_#{i}".to_sym
+          = photo_form.file_field "image_#{i}".to_sym, label: false, class: 'form-control', accept: "image/x-png, image/jpeg"
+        -# = photo_form.label :image
+        -# = photo_form.file_field :image, class: 'form-control', multiple: true, hidden: true       
 
   .form-group
     = f.label :pedigree_information
