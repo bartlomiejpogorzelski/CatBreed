@@ -18,6 +18,7 @@ gem "devise", github: "heartcombo/devise", branch: "main"
 gem 'cancancan'
 gem 'shrine'
 gem "image_processing", "~> 1.0"
+gem 'mailtrap'
 
 group :development do
   gem "web-console"
@@ -29,6 +30,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "pg_query"
   gem "pry", " ~> 0.14.1"
+  gem 'letter_opener'
 end
 
 group :test do
