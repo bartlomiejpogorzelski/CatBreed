@@ -78,12 +78,15 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
     bcrypt (3.1.19)
     bindex (0.8.1)
     builder (3.2.4)
     cancancan (3.5.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
+    content_disposition (1.0.0)
     crass (1.0.6)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
@@ -93,6 +96,8 @@ GEM
     database_cleaner-core (2.0.1)
     date (3.3.3)
     diff-lcs (1.5.0)
+    down (5.4.1)
+      addressable (~> 2.8)
     erubi (1.12.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
@@ -106,6 +111,9 @@ GEM
       tilt
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -122,6 +130,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     net-imap (0.4.4)
@@ -143,6 +152,7 @@ GEM
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    public_suffix (5.0.3)
     puma (5.6.7)
       nio4r (~> 2.0)
     racc (1.7.3)
@@ -204,6 +214,11 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
+    ruby-vips (2.2.0)
+      ffi (~> 1.12)
+    shrine (3.5.0)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -245,6 +260,7 @@ DEPENDENCIES
   devise!
   faker
   haml
+  image_processing (~> 1.0)
   jbuilder (~> 2.7)
   listen
   pg (~> 1.5)
@@ -254,6 +270,7 @@ DEPENDENCIES
   rails (~> 7.0.7)
   rails-i18n
   rspec-rails
+  shrine
   sprockets-rails
   tailwindcss-rails
   test-prof (~> 1.2)
