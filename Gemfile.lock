@@ -117,6 +117,10 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -128,6 +132,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mailtrap (1.2.2)
     marcel (1.0.2)
     method_source (1.0.0)
     mini_magick (4.12.0)
@@ -262,7 +267,9 @@ DEPENDENCIES
   haml
   image_processing (~> 1.0)
   jbuilder (~> 2.7)
+  letter_opener
   listen
+  mailtrap
   pg (~> 1.5)
   pg_query
   pry (~> 0.14.1)

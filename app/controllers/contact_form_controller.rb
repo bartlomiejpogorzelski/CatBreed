@@ -10,7 +10,7 @@ class ContactFormController < ApplicationController
     @email = params[:contact_form][:email]
     @message = params[:contact_form][:message]
 
-    # Acction with send email
+    AdminMailer.contact_email(@name, @subject, @email, @message).deliver_now
     # flash[:success] = "Your message has been sent successfully."
     render HomeComponent.new
 end
