@@ -1,0 +1,8 @@
+.container.mx-auto.mt-8
+  %h1.text-3xl.font-semibold.mb-4 Wpisy na blogu
+
+  - @posts.each do |post|
+    .bg-white.rounded-lg.shadow-md.p-6.mb-6
+      %h2.text-xl.font-semibold.mb-2
+        = link_to post.title, post_path(post)
+      %p.text-gray-600= truncate(post.content, length: 150)
