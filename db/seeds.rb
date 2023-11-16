@@ -27,6 +27,17 @@
     # videos: 'kitten_video.mp4' 
   )
 end
+unless User.exists?(email: "user@example.com")
+  User.create!(email: "user@example.com", password: "123456", password_confirmation: "123456")  
+end
+unless User.exists?(email: "admin@example.com")  
+  User.create!(email: "admin@example.com", password: "123456", password_confirmation: "123456", role: 1)
+end
 
-User.create!(email: "user@example.com", password: "123456", password_confirmation: "123456")
-User.create!(email: "admin@example.com", password: "123456", password_confirmation: "123456", role: 1)
+posts = [
+  { title: 'Pierwszy ', content: 'Ttreść pierwszego wpisu na blogu.' },
+  { title: 'Drugi wpis', content: 'Treść drugiego wpisu na blogu.' },
+  { title: 'Trzeci wpis', content: 'Treść trzeciego wpisu na blogu.' }
+]
+
+posts.each { |post| Post.create(post) }

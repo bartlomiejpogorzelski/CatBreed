@@ -1,0 +1,13 @@
+.container.mx-auto.mt-8
+  .bg-white.rounded-lg.shadow-md.p-6.mb-6
+    %h1.text-2xl.font-semibold.mb-4
+      = @post.title
+
+    %p.text-gray-600.mb-4
+      = @post.content
+
+    %p.text-sm.text-gray-500
+      Dodano: 
+      = @post.created_at.strftime('%d %b %Y %H:%M:%S')
+
+    = link_to "Powrót do listy", posts_path, class: "text-blue-500 hover:underline"
