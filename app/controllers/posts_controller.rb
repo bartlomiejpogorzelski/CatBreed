@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    # Akcja wyświetlająca pojedynczy wpis
+    render Posts::BlogPostDetailsComponent.new(post: post)
   end
 
   def new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    # Akcja do edycji wpisu
+  
   end
 
   def update
@@ -50,4 +50,8 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content)
   end
+
+  def post
+    @post ||= Post.find(params[:id])
+   end
 end
