@@ -7,3 +7,5 @@
   %p.row_style=cat.date_of_birth
   %p.row_style=cat.notes
   %p.row_style=cat.vaccination_information
+  - if cat.available?
+    = link_to 'Reserwuj', new_reservation_path(cat_id: cat.id)

@@ -17,9 +17,14 @@ class Admin::CatsController < ApplicationController
     render Admin::Cats::NewCatComponent.new(cat: @cat)
   end
 
-  def index    
-    render Admin::Cats::IndexComponent.new
+  def index
+    @cats = Cat.all
+    render Admin::Cats::IndexComponent.new(cats: @cats)
   end
+
+  # def update
+  #  binding.pry
+  # end
   
   def create  
     @cat = Cat.new(cat_params)
