@@ -5,20 +5,34 @@ class Cats::ReservationsController < ApplicationController
     render Kittens::Reservations::ReservationComponent.new(cat: @cat, reservation: @reservation)
   end
 
-  def create
-    @cat = Cat.find(params[:cat_id])
-    @reservation = @cat.reservations.new(reservation_params)
+  def create  
+    @cat = Cat.find(params[:reservation][:cat_id])
+    @reservation = @cat.build_reservation(reservation_params)
 
     if @reservation.save
-      redirect_to cats_path
+      @cat.update(status: :reservation_reported)
+      render HomeComponent.new #TO change
     else
-      render :new
+      render Kittens::Reservations::ReservationComponent.new(cat: @cat, reservation: @reservation)
     end
   end
+
+  def update    
+    @reservation = Reservation.find(params[:reservation_id])   
+    @reservation.update(deposit_paid: params[:deposit_paid] )
+    @reservation.cat.update(status: determine_status )
+
+    render HomeComponent.new
+   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date)
+    params.require(:reservation).permit(:start_date, :end_date, :deposit_paid, :cat_id)
   end
+
+  def determine_status
+    @reservation.deposit_paid? ? :reserved : :available
+  end
+
 end

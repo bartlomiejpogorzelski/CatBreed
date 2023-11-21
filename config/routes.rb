@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope module: "cats" do
     resources :kittens
     resources :parents
-    resources :reservations, only: [:new, :create]
+    resources :reservations, only: [:new, :create, :update]
   end
   namespace :admin do
     resources :cats, only: [:index, :new, :create]

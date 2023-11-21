@@ -1,1 +1,9 @@
-%div Add Kittens::Reservations::Reservation template here
+= form_with(model: @reservation, local: true) do |form|
+
+  = form.label :start_date
+  = form.datetime_field :start_date
+
+  = form.hidden_field :cat_id, value: @cat.id
+  %span Na emeila dostaniesz numer konta do wplaty zalicznki
+
+  = form.submit 'Wyslij prosbe o rezerwacje'
