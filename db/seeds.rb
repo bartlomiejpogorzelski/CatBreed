@@ -16,7 +16,7 @@
     photos: [Photo.new(image: Rack::Test::UploadedFile.new("app/assets/images/cat1.png"))], 
     pedigree_information: Faker::Lorem.sentence,
     price: Faker::Commerce.price(range: 50..500.0, as_string: true),
-    status: ['Available', 'Reserved', 'Sold'].sample,
+    status: [:available, :reserved, :reservation_reported, :sold].sample,
     vaccination_information: Faker::Lorem.sentence,
     health_status: ['Healthy', 'Sick', 'Under Treatment'].sample,
     owner_information: Faker::Name.name,
