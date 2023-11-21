@@ -34,5 +34,6 @@ group :development, :test do
 end
 
 group :test do
+  gem 'factory_bot_rails'
   gem "test-prof", "~> 1.2"
 end
