@@ -1,4 +1,4 @@
-actoryBot.define do
+FactoryBot.define do
   factory :cat do
     name { "Example Cat" }
     breed { "Example Breed" }

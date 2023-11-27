@@ -1,8 +1,8 @@
 class Cats::KittensController < ApplicationController
 
   def index
-    cats = Cat.where(is_parent: false)
-    render Kittens::KittensComponent.new(cats: cats)
+    @cats = Cat.where(is_parent: false)
+    render Kittens::KittensComponent.new(cats: @cats)
   end
 
   def show

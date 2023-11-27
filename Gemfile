@@ -31,9 +31,11 @@ group :development, :test do
   gem "pg_query"
   gem "pry", " ~> 0.14.1"
   gem 'letter_opener'
+  gem 'factory_bot_rails'
 end
 
 group :test do
-  gem 'factory_bot_rails'
+  # gem 'factory_bot_rails', '~> 6.2'
   gem "test-prof", "~> 1.2"
+  gem 'rails-controller-testing'
 end
