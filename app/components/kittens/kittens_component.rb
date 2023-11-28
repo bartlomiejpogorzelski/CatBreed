@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class Kittens::KittensComponent < ViewComponent::Base
+  include Ransack::Helpers::FormHelper
 
-  attr_reader :cats
+  attr_reader :cats, :q
 
-  def initialize(cats:)
+  def initialize(cats:, q:)
     @cats = cats
-  end  
+    @q = q
+  end
 
 end

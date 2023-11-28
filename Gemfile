@@ -19,6 +19,7 @@ gem 'cancancan'
 gem 'shrine'
 gem "image_processing", "~> 1.0"
 gem 'mailtrap'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development do
   gem "web-console"

@@ -1,8 +1,9 @@
 class Cats::KittensController < ApplicationController
 
   def index
-    @cats = Cat.where(is_parent: false)
-    render Kittens::KittensComponent.new(cats: @cats)
+    @q = Cat.not_parent.ransack(params[:q])
+    @cats = @q.result
+    render Kittens::KittensComponent.new(cats: @cats, q: @q)
   end
 
   def show
