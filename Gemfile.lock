@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: cc624b97930af59c0fbe5f1226951684f8433810
+  specs:
+    ransack (4.1.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
+
+GIT
   remote: https://github.com/heartcombo/devise.git
   revision: e2242a95f3bb2e68ec0e9a064238ff7af6429545
   branch: main
@@ -287,6 +296,7 @@ DEPENDENCIES
   rails (~> 7.0.7)
   rails-controller-testing
   rails-i18n
+  ransack!
   rspec-rails
   shrine
   sprockets-rails

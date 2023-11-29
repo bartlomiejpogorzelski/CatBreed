@@ -1,0 +1,7 @@
+= f.label :name_cont, "Imie", class: ''
+= f.search_field :name_cont, class: ''
+= f.label :status_in, "status", class: ''
+= f.select :status_in, Cat.statuses.values, {}, class: ''
+= f.label :neutered, "Neutred?"
+= f.check_box :neutered_eq
+= f.submit "submit", class: ''
