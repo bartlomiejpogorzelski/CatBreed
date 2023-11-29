@@ -9,5 +9,12 @@ class Cat < ApplicationRecord
     reserved: "Reserved",
     sold: "Sold"
   }
+
+  scope :not_parent, -> { where(is_parent: false) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "status", "updated_at", "neutered", "name"]
+  end
+
 end
 
