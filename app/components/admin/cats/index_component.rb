@@ -11,6 +11,6 @@ class Admin::Cats::IndexComponent < ViewComponent::Base
   private
 
   def accept_reservation(cat:)
-    reservation_path(reservation_id: cat&.reservation&.id, deposit_paid: :true)
+    reservation_path(id: cat&.reservation&.id, deposit_paid: :true)
   end  
 end

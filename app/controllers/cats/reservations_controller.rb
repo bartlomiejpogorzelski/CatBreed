@@ -17,8 +17,8 @@ class Cats::ReservationsController < ApplicationController
     end
   end
 
-  def update    
-    @reservation = Reservation.find(params[:reservation_id])   
+  def update
+    @reservation = Reservation.find(params[:id])   
     @reservation.update(deposit_paid: params[:deposit_paid] )
     @reservation.cat.update(status: determine_status )
 
