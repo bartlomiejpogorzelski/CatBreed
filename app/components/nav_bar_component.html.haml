@@ -20,7 +20,7 @@
             %path{d: "M6 18L18 6M6 6l12 12", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
       .flex.flex-1.items-center.justify-center.sm:items-stretch.sm:justify-start
         .flex.flex-shrink-0.items-center
-          %img.h-8.w-auto{alt: "Your Company", src: "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"}/
+          %img.h-12.w-auto{alt: "Your Company", src: asset_path('logo.png') }/
         .hidden.sm:ml-6.sm:block
           .flex.space-x-4
             / Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
@@ -33,11 +33,11 @@
         %button.relative.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800{type: "button", onclick: "window.location.href='http://www.example.com'"}
           %span.absolute{class: "-inset-1.5"}
           %span.sr-only View notifications
-          %img{"aria-hidden" => "true", src: asset_path('instagram3.png'), alt: "Instagram Icon1", class: "w-16 h-14"}
+          %img{"aria-hidden" => "true", src: asset_path('instagram3.png'), alt: "Instagram Icon1", class: "w-6 h-6"}
         %button.relative.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800{type: "button", onclick: "window.location.href='http://www.example.com'"}
           %span.absolute{class: "-inset-1.5"}
           %span.sr-only View notifications
-          %img{"aria-hidden" => "true", src: asset_path('facebook.png'), alt: "Facebook Icon1", class: "w-16 h-14"}
+          %img{"aria-hidden" => "true", src: asset_path('facebook.png'), alt: "Facebook Icon1", class: "w-6 h-6"}
         / Profile dropdown
 
         -# %button.relative.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800{type: "button"}
