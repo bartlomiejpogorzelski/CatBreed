@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   resources :contact_form, only: %i[new create]
   resources :posts
-
+  get "/pages/:page" => "pages#show",  as: 'pages'
 end
