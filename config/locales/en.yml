@@ -30,4 +30,37 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello Wolrd"
+  views:
+    welcome:
+      title: "Koci Zakamarek"
+      description: "Hodowla kotów rosyjskich niebieskich"
+      content: |
+        Jesteśmy młodą domową hodowlą kotów rosyjskich.
+        Koty rosyjskie niebieskie należą do smukłych i długonogich, dostojnych zwierząt i uznawane są za jedną
+        z najpiękniejszych ras kocich. Nasza hodowla prowadzona jest z pasją i wielkim zaangażowaniem.
+    about_race:
+      about_race: "About race"
+      personality: "Personality"
+      personality_description: "Spokój i Opanowanie: Rosyjskie Koty Niebieskie są znane z ich spokoju i opanowania. Są raczej zrównoważone emocjonalnie i rzadko okazują nadmierną ekscytację.  Czułość: Choć mogą być początkowo nieśmiałe wobec obcych, te koty bardzo się przywiązują do swoich opiekunów. Często tworzą głębokie więzi emocjonalne z jedną lub kilkoma osobami w rodzinie.
+        Inteligencja: Rosyjskie Koty Niebieskie są uważane za inteligentne. Szybko uczą się nowych rzeczy i są zdolne do rozwiązywania prostych problemów.
+        Grające Dusze: Pomimo ich spokojnego temperamentu, uwielbiają zabawę. Lubią gry interaktywne, zabawki łapiące ich uwagę, a także okazjonalne sesje łapania piłki lub myszki zabawki.
+        Ciekawość: Są ciekawe otaczającego świata i często będą obserwować to, co się dzieje wokół nich. Lubią wysoko umieszczone miejsca obserwacyjne.
+        Dyskrecja: Rosyjskie Koty Niebieskie mogą być nieco nieśmiałe wobec obcych, ale są lojalne wobec swoich właścicieli. Czasami mogą potrzebować chwili, aby ocenić nowe sytuacje.
+        Cicha Komunikacja: Choć nie są zbyt gadatliwe, potrafią wyrazić swoje uczucia delikatnym mruczeniem i subtelnie wyrażonym zachowaniem."
+      personality_description_2: Warto Pamiętać, iż każdy kot jest jednostką, a osobowość może się różnić między poszczególnymi zwierzętami. Dostarczanie odpowiedniej ilości uwagi, interakcji i zabawy pomoże utrzymać zdrową relację z kotkiem.
+      history: History
+      history_desc_1: Rosyjski Kot Niebieski to rasa o tajemniczych korzeniach, związanych z północną Rosją, a konkretnie z Wyspami Archangielskimi. Plotka głosi, że wywodzi się ona od kotów carów rosyjskich. Jeśli Rosyjski Kot Niebieski rzeczywiście migrował z północnej Rosji, prawdopodobnie odbyło się to statkiem do Anglii i północnej Europy w połowie XIX wieku. Nawet chociaż statki handlowe przemieszczały się między tym obszarem a Wyspami Brytyjskimi już od XVI wieku, a Wikingowie działali w obu regionach wieki wcześniej, nie ma wzmianki o Rasie Rosyjskiego Kota Niebieskiego aż do XIX wieku.
+      history_desc_2: W 1875 roku Rosyjski Kot Niebieski zadebiutował publicznie w Londynie na wystawie Crystal Palace pod nazwą Kot Archangielski. Crystal Palace, zbudowany pod przewodnictwem księcia Alberta, męża królowej Wiktorii, był miejscem Wielkiej Wystawy w 1851 roku i potem był używany do wystawiania różnych przedmiotów (żywych i nie tylko) dla mieszkańców wiktoriańskiego Londynu, przyciągając uwagę międzynarodową. W połowie XIX wieku wystawy kotów stały się regularnymi i popularnymi wydarzeniami.
+      history_desc_3: Rosyjski Kot Niebieski zyskał swoją własną klasyfikację już w 1912 roku, po swoim wprowadzeniu do Stanów Zjednoczonych na początku XX wieku. Jednak, zdaniem CFA (Cat Fanciers' Association), rasa naprawdę zdobyła serca miłośników zwierząt po II wojnie światowej, zyskując popularność od lat 60. XX wieku.
+      history_desc_4: Rosyjskie Koty Niebieskie to starsza, naturalnie występująca rasa, co oznacza, że nie zostały stworzone przez człowieka, tak jak niektóre inne rasy. Ze względu na swoją długą historię, dokładne pochodzenie rasy jest nieznane.
+      health_problems: Problemy zdrowotne
+      health_desc_1: Rosyjski niebieski jest ogólnie zdrowy i nie są znane żadne choroby o podłożu genetycznym. Rasa cieszy się długim czasem życia, często osiągając wiek kilkunastu lat lub nawet dłużej. Jednak warto zauważyć, że ta rasa kotów może wykazywać skłonność do odwadniania się, co później może prowadzić do problemów z układem moczowym. 
+      health_desc_2: "Nadmierny, niekontrolowany apetyt może przyczynić się do otyłości, dlatego istotne jest przestrzeganie planu żywieniowego: wysokiej jakości karma wraz z odpowiednio wyliczonymi porcjami. Dojrzaly zdrowy kot powinien posiadać wagę w przedziale 3-6,5 kg (7-15 funtów). Samce są cięższe."
+
+
+
+
+
+
+
