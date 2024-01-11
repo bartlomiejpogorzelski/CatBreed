@@ -33,7 +33,7 @@ pl:
   hello: "Witaj Swiecie"
   views:
     welcome:
-      title: "Koci Zakamarek"
+      title: "Happy Russian Kittens"
       description: "Hodowla kotów rosyjskich niebieskich"
       content: |
         Jesteśmy młodą domową hodowlą kotów rosyjskich.
@@ -57,8 +57,13 @@ pl:
       health_problems: Problemy zdrowotne
       health_desc_1: Rosyjski niebieski jest ogólnie zdrowy i nie są znane żadne choroby o podłożu genetycznym. Rasa cieszy się długim czasem życia, często osiągając wiek kilkunastu lat lub nawet dłużej. Jednak warto zauważyć, że ta rasa kotów może wykazywać skłonność do odwadniania się, co później może prowadzić do problemów z układem moczowym. 
       health_desc_2: "Nadmierny, niekontrolowany apetyt może przyczynić się do otyłości, dlatego istotne jest przestrzeganie planu żywieniowego: wysokiej jakości karma wraz z odpowiednio wyliczonymi porcjami. Dojrzaly zdrowy kot powinien posiadać wagę w przedziale 3-6,5 kg (7-15 funtów). Samce są cięższe."
-
-
+    nav_bar:
+      about_race: "O rasie"
+      blog: Blog
+      parents: Rodzice
+      kittens: Kociaki
+      contact: Kontakt
+      main_page: Strona Główna
 
 
 
