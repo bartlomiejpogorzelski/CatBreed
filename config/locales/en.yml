@@ -33,31 +33,37 @@ en:
   hello: "Hello Wolrd"
   views:
     welcome:
-      title: "Koci Zakamarek"
-      description: "Hodowla kotów rosyjskich niebieskich"
-      content: |
-        Jesteśmy młodą domową hodowlą kotów rosyjskich.
-        Koty rosyjskie niebieskie należą do smukłych i długonogich, dostojnych zwierząt i uznawane są za jedną
-        z najpiękniejszych ras kocich. Nasza hodowla prowadzona jest z pasją i wielkim zaangażowaniem.
+      title: "Happy Russian Kittens"
+      description: "Breed of Russian Blue Cats"
+      content: "
+        We are a young home cattery of Russian cats.
+        Blue Russian cats belong to slender and long-legged, dignified animals and are considered one
+        of the most beautiful cat breeds. Our breeding is conducted with passion and great commitment."
     about_race:
       about_race: "About race"
       personality: "Personality"
-      personality_description: "Spokój i Opanowanie: Rosyjskie Koty Niebieskie są znane z ich spokoju i opanowania. Są raczej zrównoważone emocjonalnie i rzadko okazują nadmierną ekscytację.  Czułość: Choć mogą być początkowo nieśmiałe wobec obcych, te koty bardzo się przywiązują do swoich opiekunów. Często tworzą głębokie więzi emocjonalne z jedną lub kilkoma osobami w rodzinie.
-        Inteligencja: Rosyjskie Koty Niebieskie są uważane za inteligentne. Szybko uczą się nowych rzeczy i są zdolne do rozwiązywania prostych problemów.
-        Grające Dusze: Pomimo ich spokojnego temperamentu, uwielbiają zabawę. Lubią gry interaktywne, zabawki łapiące ich uwagę, a także okazjonalne sesje łapania piłki lub myszki zabawki.
-        Ciekawość: Są ciekawe otaczającego świata i często będą obserwować to, co się dzieje wokół nich. Lubią wysoko umieszczone miejsca obserwacyjne.
-        Dyskrecja: Rosyjskie Koty Niebieskie mogą być nieco nieśmiałe wobec obcych, ale są lojalne wobec swoich właścicieli. Czasami mogą potrzebować chwili, aby ocenić nowe sytuacje.
-        Cicha Komunikacja: Choć nie są zbyt gadatliwe, potrafią wyrazić swoje uczucia delikatnym mruczeniem i subtelnie wyrażonym zachowaniem."
-      personality_description_2: Warto Pamiętać, iż każdy kot jest jednostką, a osobowość może się różnić między poszczególnymi zwierzętami. Dostarczanie odpowiedniej ilości uwagi, interakcji i zabawy pomoże utrzymać zdrową relację z kotkiem.
+      personality_description: "Calm and Composure: Russian Blue Cats are known for their calm and composure. They are generally emotionally balanced and rarely show excessive excitement. Affectionate: Although they may be initially shy around strangers, these cats form strong attachments to their caregivers. They often develop deep emotional bonds with one or a few individuals in the family.
+        Intelligence: Russian Blue Cats are considered intelligent. They quickly learn new things and can solve simple problems.
+        Playful Spirits: Despite their calm temperament, they love to play. They enjoy interactive games, toys that capture their attention, and occasional sessions of chasing a ball or toy mouse.
+        Curiosity: They are curious about the surrounding world and often observe what is happening around them. They like elevated observation points.
+        Discretion: Russian Blue Cats may be a bit shy around strangers but are loyal to their owners. Sometimes, they may need a moment to assess new situations.
+        Quiet Communication: Although not overly talkative, they can express their feelings through gentle purring and subtly expressed behavior."
+      personality_description_2: It is important to note that each cat is an individual, and personalities may vary among different animals. Providing an adequate amount of attention, interaction, and playtime will help maintain a healthy relationship with your cat.
       history: History
-      history_desc_1: Rosyjski Kot Niebieski to rasa o tajemniczych korzeniach, związanych z północną Rosją, a konkretnie z Wyspami Archangielskimi. Plotka głosi, że wywodzi się ona od kotów carów rosyjskich. Jeśli Rosyjski Kot Niebieski rzeczywiście migrował z północnej Rosji, prawdopodobnie odbyło się to statkiem do Anglii i północnej Europy w połowie XIX wieku. Nawet chociaż statki handlowe przemieszczały się między tym obszarem a Wyspami Brytyjskimi już od XVI wieku, a Wikingowie działali w obu regionach wieki wcześniej, nie ma wzmianki o Rasie Rosyjskiego Kota Niebieskiego aż do XIX wieku.
-      history_desc_2: W 1875 roku Rosyjski Kot Niebieski zadebiutował publicznie w Londynie na wystawie Crystal Palace pod nazwą Kot Archangielski. Crystal Palace, zbudowany pod przewodnictwem księcia Alberta, męża królowej Wiktorii, był miejscem Wielkiej Wystawy w 1851 roku i potem był używany do wystawiania różnych przedmiotów (żywych i nie tylko) dla mieszkańców wiktoriańskiego Londynu, przyciągając uwagę międzynarodową. W połowie XIX wieku wystawy kotów stały się regularnymi i popularnymi wydarzeniami.
-      history_desc_3: Rosyjski Kot Niebieski zyskał swoją własną klasyfikację już w 1912 roku, po swoim wprowadzeniu do Stanów Zjednoczonych na początku XX wieku. Jednak, zdaniem CFA (Cat Fanciers' Association), rasa naprawdę zdobyła serca miłośników zwierząt po II wojnie światowej, zyskując popularność od lat 60. XX wieku.
-      history_desc_4: Rosyjskie Koty Niebieskie to starsza, naturalnie występująca rasa, co oznacza, że nie zostały stworzone przez człowieka, tak jak niektóre inne rasy. Ze względu na swoją długą historię, dokładne pochodzenie rasy jest nieznane.
-      health_problems: Problemy zdrowotne
-      health_desc_1: Rosyjski niebieski jest ogólnie zdrowy i nie są znane żadne choroby o podłożu genetycznym. Rasa cieszy się długim czasem życia, często osiągając wiek kilkunastu lat lub nawet dłużej. Jednak warto zauważyć, że ta rasa kotów może wykazywać skłonność do odwadniania się, co później może prowadzić do problemów z układem moczowym. 
-      health_desc_2: "Nadmierny, niekontrolowany apetyt może przyczynić się do otyłości, dlatego istotne jest przestrzeganie planu żywieniowego: wysokiej jakości karma wraz z odpowiednio wyliczonymi porcjami. Dojrzaly zdrowy kot powinien posiadać wagę w przedziale 3-6,5 kg (7-15 funtów). Samce są cięższe."
-
+      history_desc_1: The Russian Blue cat is a breed with mysterious origins, associated with northern Russia, specifically the Archangel Isles. Rumor has it that it descends from the cats of the Russian czars. If the Russian Blue indeed migrated from northern Russia, it likely occurred by ship to England and northern Europe in the mid-19th century. Even though merchant ships were traveling between this area and the British Isles since the 16th century, and Vikings operated in both regions centuries earlier, there is no mention of the Russian Blue breed until the 19th century.
+      history_desc_2: In 1875, the Russian Blue cat made its public debut in London at the Crystal Palace exhibition under the name "Archangel Cat." The Crystal Palace, built under the direction of Prince Albert, Queen Victoria's husband, was the venue for the Great Exhibition in 1851 and was later used for displaying various items (living and non-living) for the residents of Victorian London, attracting international attention. In the mid-19th century, cat shows became regular and popular events.
+      history_desc_3: The Russian Blue cat gained its own classification as early as 1912, following its introduction to the United States in the early 20th century. However, according to the Cat Fanciers' Association (CFA), the breed truly captured the hearts of animal lovers after World War II, gaining popularity from the 1960s onward.
+      history_desc_4: Russian Blue cats are an older, naturally occurring breed, which means they were not created by humans, unlike some other breeds. Due to their long history, the exact origin of the breed is unknown.
+      health_problems: health_problems
+      health_desc_1: The Russian Blue is generally healthy, and no genetic diseases are known. The breed enjoys a long lifespan, often reaching into the teens or even longer. However, it's worth noting that this cat breed may have a tendency towards dehydration, which can later lead to urinary tract issues.
+      health_desc_2: "Excessive, uncontrolled appetite can contribute to obesity, so it is crucial to adhere to a feeding plan: high-quality food along with properly measured portions. A mature, healthy cat should have a weight in the range of 3-6.5 kg (7-15 pounds). Males tend to be heavier."
+    nav_bar:
+      about_race: "About race"
+      blog: Blog
+      parents: Parents
+      kittens: Kittens
+      contact: Contact
+      main_page: Main Page
 
 
 

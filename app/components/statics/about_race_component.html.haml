@@ -1,18 +1,19 @@
 -# %div{style: "background-image: url('/images/logo.png') ;" }
+%h3.pt-2.text-5xl.font-bold{style: "text-align: center;"}= t('views.about_race.about_race')
 %div.flex.items-center.justify-center.h-screen
   %figure
     %img.center.h-auto.max-w-lg.transition-all.duration-300.rounded-lg.cursor-pointer.filter.grayscale.hover:grayscale-0{src: "https://cdn.pixabay.com/photo/2022/11/26/17/40/russian-blue-7618223_960_720.jpg", alt: "image description"}
     %figcaption.text-sm.text-neutral-600.dark:text-neutral-400 zrodlo
-%h2.font-bold{style: "text-align: center;"}= t('views.about_race.about_race')
-%div.px-6.text-gray-500.dark:text-gray-400
-  %p The Russian blue cat appears to be larger than she is because of her extremely dense, soft double coat. She may be a good choice for pet parents with allergies because she doesn't shed much and produces lower levels of the glycoprotein Fel d 1, a known allergen, than other cat breeds.
 
 %h1.font-bold{style: "text-align: center;"}= t('views.about_race.personality') 
-%div.px-6.text-gray-500.dark:text-gray-400 
-
+%div.px-6.text-gray-500.dark:text-gray-400
   %p.mb-3= t('views.about_race.personality_description')
   %p.mb-3= t('views.about_race.personality_description_2')
 
+%div.flex.items-center.justify-center.h-screen
+  %figure
+    %img.center.h-auto.max-w-lg.transition-all.duration-300.rounded-lg.cursor-pointer.filter.grayscale.hover:grayscale-0{src: "https://cdn.pixabay.com/photo/2016/12/15/23/24/cat-1910266_960_720.jpg", alt: "image description"}
+    %figcaption.text-sm.text-neutral-600.dark:text-neutral-400 zrodlo
 
 %h1.font-bold{style: "text-align: center;"}= t('views.about_race.history') 
 %div.px-6.text-gray-500.dark:text-gray-400
@@ -21,6 +22,11 @@
   %p.mb-3= t('views.about_race.history_desc_3')
   %p.mb-3= t('views.about_race.history_desc_4')
 
+%div.flex.items-center.justify-center.h-screen
+  %figure
+    %img.center.h-auto.max-w-lg.transition-all.duration-300.rounded-lg.cursor-pointer.filter.grayscale.hover:grayscale-0{src: "https://cdn.pixabay.com/photo/2019/04/12/15/12/cat-4122353_960_720.jpg", alt: "image description"}
+    %figcaption.text-sm.text-neutral-600.dark:text-neutral-400 zrodlo
+
 %h1.font-bold{style: "text-align: center;"}= t('views.about_race.health_problems')
 %div.px-6.text-gray-500.dark:text-gray-400
   %p.mb-3= t('views.about_race.health_desc_1')
@@ -28,16 +34,9 @@
 
 %div.flex.items-center.justify-center.h-screen
   %figure
-    %img.center.h-auto.max-w-lg.transition-all.duration-300.rounded-lg.cursor-pointer.filter.grayscale.hover:grayscale-0{src: "https://cdn.pixabay.com/photo/2016/12/15/23/24/cat-1910266_960_720.jpg", alt: "image description"}
-    %figcaption.text-sm.text-neutral-600.dark:text-neutral-400 zrodlo
-%div.flex.items-center.justify-center.h-screen
-  %figure
-    %img.center.h-auto.max-w-lg.transition-all.duration-300.rounded-lg.cursor-pointer.filter.grayscale.hover:grayscale-0{src: "https://cdn.pixabay.com/photo/2019/04/12/15/12/cat-4122353_960_720.jpg", alt: "image description"}
-    %figcaption.text-sm.text-neutral-600.dark:text-neutral-400 zrodlo
-%div.flex.items-center.justify-center.h-screen
-  %figure
     %img.center.h-auto.max-w-lg.transition-all.duration-300.rounded-lg.cursor-pointer.filter.grayscale.hover:grayscale-0{src: "https://cdn.pixabay.com/photo/2017/07/07/08/52/cat-2480777_960_720.jpg", alt: "image description"}
     %figcaption.text-sm.text-neutral-600.dark:text-neutral-400 zrodlo
+    
 %center.py-2.px-6
   %iframe.h-full{class: "w-3/5", src: "https://www.youtube.com/embed/hA46h7x5u4I?si=6YV9Ls_TlXyEAifO", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: true}
 %div Add Statics::AboutRace template here

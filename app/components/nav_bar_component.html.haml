@@ -24,12 +24,12 @@
         .hidden.sm:ml-6.sm:block
           .flex.space-x-4
             / Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
-            %a.bg-gray-900.text-white.rounded-md.px-3.py-2.text-sm.font-medium{"aria-current" => "page", href: "#"} Strona glowna
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: pages_path(page: 'AboutRace') } O rasie
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: posts_path} Blog
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: parents_path} Rodzice
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: kittens_path} Kociaki
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: new_contact_form_path} Kontakt
+            %a.bg-gray-900.text-white.rounded-md.px-3.py-2.text-sm.font-medium{"aria-current" => "page", href: root_path}= t('views.nav_bar.main_page')
+            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: pages_path(page: 'AboutRace') }= t('views.nav_bar.about_race')
+            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: posts_path}= t('views.nav_bar.blog')
+            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: parents_path}= t('views.nav_bar.parents')
+            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: kittens_path}= t('views.nav_bar.kittens')
+            %a.text-gray-300.hover:bg-gray-700.hover:text-white.rounded-md.px-3.py-2.text-sm.font-medium{href: new_contact_form_path}= t('views.nav_bar.contact')
       .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
         %button.relative.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800{type: "button", onclick: "window.location.href='http://www.example.com'"}
           %span.absolute{class: "-inset-1.5"}
@@ -43,7 +43,6 @@
           = link_to "PL", url_for(locale: 'pl')
         %div.block.whitespace-nowrap.bg-transparent.px-4.py-2.text-sm.font-normal.text-neutral-700.hover:bg-neutral-100.active:text-neutral-800.active:no-underline.disabled:pointer-events-none.disabled:bg-transparent.disabled:text-neutral-400.dark:text-neutral-200.dark:hover:bg-white
           = link_to "EN", url_for(locale: 'en')
-
 
         / Profile dropdown
 
