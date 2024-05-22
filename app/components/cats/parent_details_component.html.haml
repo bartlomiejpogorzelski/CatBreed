@@ -1,1 +1,16 @@
-%div Add Cats::ParentDetails template here
+.shadow.md:flex-row.hover:bg-gray-100.dark:border-gray-700.dark:bg-gray-800.dark:hover:bg-gray-700
+  %a.flex.flex-col.border.border-gray-200.rounded-lg{href: "#"}
+    - if cat&.photos&.any?
+      - cat.photos.each do |photo|
+        .container.mx-auto.px-5.py-2.lg:px-32.lg:pt-12
+          .-m-1.flex.flex-wrap.md:-m-2
+            .flex.flex-wrap{class: "w-1/3"}
+              .w-full.p-1.md:p-2
+                %img.block.h-full.w-full.rounded-lg.object-cover.object-center{alt: "cat_image", src: photo.image_url}
+  %h5.mb-2.text-2xl.font-bold.tracking-tight.text-gray-900.dark:text-white=cat.name
+  %p.row_style=cat.description
+  %p.row_style=cat.gender
+  %p.row_style=cat.date_of_birth
+  %p.row_style=cat.notes
+  %p.row_style=cat.vaccination_information
+
