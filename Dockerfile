@@ -1,19 +1,32 @@
-# FROM ruby:3.2.2
+FROM ruby:3.2.2
 
-# RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev nodejs
+# Instalacja niezbędnych narzędzi
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev nodejs
 
-# WORKDIR /docker/app
+# Instalacja Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y yarn
 
-# RUN gem install bundler
+WORKDIR /docker/app
 
-# COPY Gemfile* ./
+RUN gem install bundler
 
-# RUN bundle install
+COPY Gemfile* ./
 
-# ADD . /docker/app
+RUN bundle install
 
-# ARG DEFAULT_PORT 3000
+# Instalacja zależności Node.js
+COPY package.json yarn.lock ./
+RUN yarn install --check-files
 
-# EXPOSE ${DEFAULT_PORT}
+# Kompilacja assetów (w tym Tailwind CSS)
+RUN bundle exec rails assets:precompile
 
-# CMD [ "bundle","exec", "puma", "config.ru"] # CMD ["rails","server"] # you can also write like this.
+ADD . /docker/app
+
+ARG DEFAULT_PORT 3000
+EXPOSE ${DEFAULT_PORT}
+
+# Uruchomienie serwera Puma
+CMD [ "bundle", "exec", "puma", "config.ru"]
