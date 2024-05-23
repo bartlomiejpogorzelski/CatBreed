@@ -79,6 +79,7 @@ Rails.application.configure do
   #   password: 'ymailtrap_password',
   #   authentication: :cram_md5
   # }
-
+  
+  config.hosts << "catbreed.fly.dev"
 
 end
