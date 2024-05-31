@@ -40,3 +40,5 @@ group :test do
   gem "test-prof", "~> 1.2"
   gem 'rails-controller-testing'
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

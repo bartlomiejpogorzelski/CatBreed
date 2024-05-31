@@ -1,21 +1,20 @@
-version: '3'
-services:
-  db:
-    image: 'postgres'
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: postgres1
-    # env_file:
-    #   - ./env/postgres.env # you can also define env variables like this.
-  rails:
-    build: ./ 
-    ports:
-      - '3000:3000'
-    volumes:
-      - .:/docker/app # add our local code to dockerfile
-    depends_on:
-      - db  # add all dependant container
+# version: '3.8'
+# services:
+#   db:
+#     image: postgres:13
+#     volumes:
+#       - postgres:/var/lib/postgresql/data
+#     environment:
+#       POSTGRES_PASSWORD: postgres1
+#   web:
+#     build: .
+#     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+#     volumes:
+#       - .:/app
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - db
 
-volumes:
-  postgres: # named volume
+# volumes:
+#   postgres:
