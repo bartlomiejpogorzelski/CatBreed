@@ -5,15 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do
-  Cat.create(
+
+
+puts "Seeding cats..."
+10.times do |i|
+  cat = Cat.new(
     name: Faker::Creature::Cat.name,
     breed: Faker::Creature::Cat.breed,
     # color: Faker::Creature::Cat.color,
     date_of_birth: Faker::Date.birthday(min_age: 1, max_age: 15),
     gender: ['Male', 'Female'].sample,
     description: Faker::Lorem.paragraph,
-    photos: [Photo.new(image: Rack::Test::UploadedFile.new("app/assets/images/cat1.png"))], 
+    photos: [Photo.new(image: Rack::Test::UploadedFile.new("app/assets/images/cat1.png"))],
     pedigree_information: Faker::Lorem.sentence,
     price: Faker::Commerce.price(range: 50..500.0, as_string: true),
     status: [:available, :reserved, :reservation_reported, :sold].sample,
@@ -24,20 +27,44 @@
     neutered: [true, false].sample,
     notes: Faker::Lorem.paragraph,
     is_parent: [true, false].sample
-    # videos: 'kitten_video.mp4' 
+    # videos: 'kitten_video.mp4'
   )
+
+  if cat.save
+    puts "Cat #{i + 1} created: #{cat.name}, #{cat.breed}"
+  else
+    puts "Error creating cat #{i + 1}: #{cat.errors.full_messages.join(", ")}"
+  end
 end
+puts "Cats seeding completed."
+
+puts "Seeding users..."
 unless User.exists?(email: "user@example.com")
-  User.create!(email: "user@example.com", password: "123456", password_confirmation: "123456")  
-end
-unless User.exists?(email: "admin@example.com")  
-  User.create!(email: "admin@example.com", password: "123456", password_confirmation: "123456", role: 1)
+  User.create!(email: "user@example.com", password: "123456", password_confirmation: "123456")
+  puts "User with email user@example.com created."
+else
+  puts "User with email user@example.com already exists."
 end
 
+unless User.exists?(email: "admin@example.com")
+  User.create!(email: "admin@example.com", password: "123456", password_confirmation: "123456", role: 1)
+  puts "Admin with email admin@example.com created."
+else
+  puts "Admin with email admin@example.com already exists."
+end
+
+puts "Seeding posts..."
 posts = [
-  { title: 'Pierwszy ', content: 'Ttreść pierwszego wpisu na blogu.' },
+  { title: 'Pierwszy wpis', content: 'Treść pierwszego wpisu na blogu.' },
   { title: 'Drugi wpis', content: 'Treść drugiego wpisu na blogu.' },
   { title: 'Trzeci wpis', content: 'Treść trzeciego wpisu na blogu.' }
 ]
 
-posts.each { |post| Post.create(post) }
+posts.each_with_index do |post, index|
+  if Post.create(post)
+    puts "Post #{index + 1} created: #{post[:title]}"
+  else
+    puts "Error creating post #{index + 1}"
+  end
+end
+puts "Posts seeding completed."
