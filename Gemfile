@@ -24,6 +24,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 group :development do
   gem "web-console"
   gem "listen"
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :development, :test do

@@ -27,10 +27,8 @@ development:
   <<: *default
   database: CatBreed_development
   host: localhost
-  # username: <%= ENV['DATABASE_USERNAME'] %>
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
-  username: bartek
-  password: 1234
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 
   # The specified database role being used to connect to postgres.
