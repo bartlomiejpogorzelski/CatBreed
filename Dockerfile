@@ -1,19 +1,21 @@
-# FROM ruby:3.2.2
+FROM ruby:3.2.2
 
-# RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev nodejs
 
-# WORKDIR /docker/app
+WORKDIR /docker/app
 
-# RUN gem install bundler
+RUN gem install bundler
 
-# COPY Gemfile* ./
+COPY Gemfile* ./
 
-# RUN bundle install
+RUN bundle install
 
-# ADD . /docker/app
+ADD . /docker/app
 
-# ARG DEFAULT_PORT 3000
+ARG DEFAULT_PORT 3000
 
-# EXPOSE ${DEFAULT_PORT}
+EXPOSE ${DEFAULT_PORT}
 
-# CMD [ "bundle","exec", "puma", "config.ru"] # CMD ["rails","server"] # you can also write like this.
+RUN bundle exec rake assets:precompile
+
+CMD [ "bundle","exec", "puma", "config.ru"] # CMD ["rails","server"] # you can also write like this.

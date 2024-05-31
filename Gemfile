@@ -24,6 +24,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 group :development do
   gem "web-console"
   gem "listen"
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :development, :test do
@@ -40,3 +41,5 @@ group :test do
   gem "test-prof", "~> 1.2"
   gem 'rails-controller-testing'
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
