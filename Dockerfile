@@ -12,10 +12,13 @@ RUN bundle install
 
 ADD . /docker/app
 
-ARG DEFAULT_PORT 3000
+ARG DEFAULT_PORT=3000
+ARG RAILS_ENV
+
+ENV RAILS_ENV=${RAILS_ENV}
 
 EXPOSE ${DEFAULT_PORT}
 
 RUN bundle exec rake assets:precompile
 
-CMD [ "bundle","exec", "puma", "config.ru"] # CMD ["rails","server"] # you can also write like this.
+CMD [ "bundle","exec", "puma", "config.ru"]
