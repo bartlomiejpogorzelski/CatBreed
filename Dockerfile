@@ -12,6 +12,8 @@ RUN bundle install
 
 ADD . /docker/app
 
+RUN mkdir -p tmp/pids
+
 ARG DEFAULT_PORT=3000
 ARG RAILS_ENV
 
