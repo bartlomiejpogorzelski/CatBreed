@@ -20,6 +20,7 @@ gem 'shrine'
 gem "image_processing", "~> 1.0"
 gem 'mailtrap'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'aws-sdk-s3'
 
 group :development do
   gem "web-console"
