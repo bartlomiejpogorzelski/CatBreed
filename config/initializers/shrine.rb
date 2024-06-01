@@ -1,18 +1,19 @@
 require "shrine"
 require "shrine/storage/file_system"
-# require "shrine/storage/s3"
+require "shrine/storage/s3"
 
-# s3_options = {
-#   bucket: Rails.application.credentials.dig(:s3, :bucket),
-#   region: Rails.application.credentials.dig(:s3, :region),
-#   access_key_id: Rails.application.credentials.dig(:s3, :access_key_id),
-#   secret_access_key: Rails.application.credentials.dig(:s3, :secret_access_key)
-# }
+s3_options = {
+  bucket: ENV['WASABI_BUCKET'],
+  region: ENV['WASABI_REGION'],
+  access_key_id: ENV['WASABI_ACCESS_KEY_ID'],
+  secret_access_key: ENV['WASABI_SECRET_ACCESS_KEY'],
+  endpoint: 'https://s3.eu-central-2.wasabisys.com'
+}
 
 permanent_storage = if Rails.env.development? || Rails.env.test?
   Shrine::Storage::FileSystem.new("public", prefix: "uploads")
 else
-  # Shrine::Storage::S3.new(**s3_options)
+  Shrine::Storage::S3.new(**s3_options)
 end
 
 Shrine.storages = {
