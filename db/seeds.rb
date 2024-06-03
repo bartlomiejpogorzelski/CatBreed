@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+# Photo.create(image: File.open('/docker/app/public/uploads/cat1.png'))
+# wget -O /docker/app/public/uploads/cat1.png https://raw.githubusercontent.com/bartlomiejpogorzelski/CatBreed/master/app/assets/images/cat1.png
+# Staging:     photos: [Photo.new(image: Rack::Test::UploadedFile.new("/docker/app/public/uploads/cat1.png"))],
 puts "Seeding cats..."
 10.times do |i|
   cat = Cat.new(
