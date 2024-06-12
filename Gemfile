@@ -21,6 +21,7 @@ gem "image_processing", "~> 1.0"
 gem 'mailtrap'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'aws-sdk-s3'
+gem 'importmap-rails'
 
 group :development do
   gem "web-console"
