@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :contact_form, only: %i[new create]
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   get "/pages/:page" => "pages#show",  as: 'pages'
 end

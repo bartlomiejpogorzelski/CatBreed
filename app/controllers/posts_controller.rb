@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = post.comments
     render Posts::BlogPostDetailsComponent.new(post: post)
   end
 

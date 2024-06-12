@@ -1,0 +1,10 @@
+%div{class: "comment-#{comment.id} container", style: "border: 1px solid black; padding: 1em; margin: 1em;"}
+  = comment.user.email
+  %br/
+  %span
+    Posted #{time_ago_in_words(comment.created_at)} ago
+  - if current_user == comment.user
+    .button-group.float-end
+      = button_to "Delete", [post, comment], class:"btn btn-danger", method: :delete
+  %hr/
+  = comment.body
