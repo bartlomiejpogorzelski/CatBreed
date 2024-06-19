@@ -12,7 +12,7 @@
 
     = link_to "Powrót do listy", posts_path, class: "text-blue-500 hover:underline"
   .container
-    = render Posts::CommentFormComponent.new(post: @post, comment: Comment.new)
+    = render Posts::CommentFormComponent.new(post: @post, comment: Comment.new, submit_label: "Reply")
     - if @post.comments.present?
       - @post.comments.each do |comment|
         = render Posts::CommentComponent.new(comment: comment, post: @post, current_user: comment.user)

@@ -5,11 +5,12 @@ class Posts::CommentFormComponent < ViewComponent::Base
   include ActionText::Engine.helpers
   include Rails.application.routes.url_helpers
 
-  attr_reader :post, :comment
+  attr_reader :post, :comment, :submit_label
 
-  def initialize(post:, comment:)
+  def initialize(post:, comment:, submit_label:)
     @post = post
     @comment = comment
+    @submit_label = submit_label
   end
 
   def main_app

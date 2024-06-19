@@ -24,6 +24,14 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def update
+    if @comment.update(comment_params)
+      # Redirect or render as needed
+    else
+      # Handle unsuccessful comment update
+    end
+  end
+  
   private
 
   def set_post
