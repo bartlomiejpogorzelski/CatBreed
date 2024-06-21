@@ -1,15 +1,11 @@
-%div{class: "comment-#{comment.id} container", style: "border: 1px solid black; padding: 1em; margin: 1em;"}
+.div{class: "comment-#{comment.id} container container border border-black p-4 m-4"}
   = comment.user.email
-  %br/
-  %span
   - if current_user == comment.user
-    .button-group.float-end{style: "display: inline-block;"}
-      = link_to "Edit", nil, remote: true, class: "btn btn-warning", id: "edit-button-#{comment.id}", data: {controller: "comments", action: "comments#toggleForm", comments_form_param: "edit-form-#{comment.id}", comments_body_param: "comment-body-#{comment.id}", comments_edit_param: "edit-button-#{comment.id}"}
-      = button_to "Delete", [post, comment], class:"btn btn-danger", method: :delete
-  .d-none{:id => "edit-form-#{comment.id}"}
-    = render(Posts::CommentFormComponent.new(post: post, comment: comment, submit_label: "Update"))
-  
-  %hr/
+    .div.button-group.float-right.flex.items-center
+      = link_to "Edit", nil, remote: true, class: "bg-yellow-500 text-white py-2 px-4 rounded", id: "edit-button-#{comment.id}", data: {controller: "comments", action: "comments#toggleForm", comments_form_param: "edit-form-#{comment.id}", comments_body_param: "comment-body-#{comment.id}", comments_edit_param: "edit-button-#{comment.id}"}
+      = button_to "Delete", [post, comment], class:"bg-red-500 text-white py-2 px-4 rounded", method: :delete
+  .div.hidden{:id => "edit-form-#{comment.id}"}
+    = render(Posts::CommentFormComponent.new(post: post, comment: comment, submit_label: "Update"))  
   .div{id: "comment-body-#{comment.id}"}
     = comment.body
 

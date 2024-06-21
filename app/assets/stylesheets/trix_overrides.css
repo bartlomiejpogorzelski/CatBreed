@@ -1,0 +1,56 @@
+/* app/assets/stylesheets/trix_overrides.css
+
+.trix-button {
+  @apply bg-blue-500 text-white py-2 px-4 rounded mx-1 hover:bg-blue-700;
+}
+
+.trix-button--icon-bold {
+  @apply bg-blue-500 text-white py-2 px-4 rounded mx-1 hover:bg-blue-700;
+}
+
+.trix-button--icon-italic {
+  @apply bg-green-500 text-white py-2 px-4 rounded mx-1 hover:bg-green-700;
+}
+
+.trix-button--icon-strike {
+  @apply bg-red-500 text-white py-2 px-4 rounded mx-1 hover:bg-red-700;
+}
+
+.trix-button--icon-link {
+  @apply bg-yellow-500 text-white py-2 px-4 rounded mx-1 hover:bg-yellow-700;
+}
+
+.trix-button--icon-heading-1 {
+  @apply bg-purple-500 text-white py-2 px-4 rounded mx-1 hover:bg-purple-700;
+}
+
+.trix-button--icon-quote {
+  @apply bg-indigo-500 text-white py-2 px-4 rounded mx-1 hover:bg-indigo-700;
+}
+
+.trix-button--icon-code {
+  @apply bg-pink-500 text-white py-2 px-4 rounded mx-1 hover:bg-pink-700;
+}
+
+.trix-button--icon-bullet-list {
+  @apply bg-teal-500 text-white py-2 px-4 rounded mx-1 hover:bg-teal-700;
+}
+
+.trix-button--icon-number-list {
+  @apply bg-orange-500 text-white py-2 px-4 rounded mx-1 hover:bg-orange-700;
+}
+
+.trix-button--icon-undo {
+  @apply bg-gray-500 text-white py-2 px-4 rounded mx-1 hover:bg-gray-700;
+}
+
+.trix-button--icon-redo {
+  @apply bg-black text-white py-2 px-4 rounded mx-1 hover:bg-black-700;
+}
+
+.trix-button--dialog {  @apply bg-blue-500 text-white py-2 px-4 rounded mx-1 hover:bg-blue-700;
+}
+
+.trix-dialog__link-fields {
+  @apply bg-white border border-gray-300 p-2 rounded;
+} */

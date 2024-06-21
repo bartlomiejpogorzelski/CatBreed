@@ -18,9 +18,9 @@ export default class extends Controller {
     const commentBody = document.getElementById(commentBodyID);
     const editButton = document.getElementById(editButtonID);
 
-    form.classList.toggle("d-none");
+    form.classList.toggle("hidden");
     form.classList.toggle("mt-5");
-    commentBody.classList.toggle("d-none");
+    commentBody.classList.toggle("hidden");
     this.toggleEditButton(editButton);
   }
 
@@ -35,8 +35,8 @@ export default class extends Controller {
   }
 
   toggleEditButtonClass(editButton) {
-    editButton.classList.toggle("btn-secondary");
-    editButton.classList.toggle("btn-warning");
+    editButton.classList.toggle("bg-gray-500");
+    editButton.classList.toggle("bg-yellow-500");
   }
 
 }
