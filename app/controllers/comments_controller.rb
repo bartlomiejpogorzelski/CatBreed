@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   # before_action :set_post
 
   def create
@@ -25,11 +25,19 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment = post.comments.find(params[:id])
+
     if @comment.update(comment_params)
-      # Redirect or render as needed
+      # binding.pry 
+
+      # component_html = render_to_string(Posts::CommentComponent.new(comment: @comment, post: post, current_user: current_user))
+      # puts component_html
+      # render html: component_html.html_safe
+      render(Posts::CommentComponent.new(comment: @comment, post: post, current_user: current_user), layout: false)
     else
-      # Handle unsuccessful comment update
+
     end
+    
   end
   
   private
@@ -41,4 +49,11 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body)
   end
+
+  def post
+    post ||= Post.find(params[:post_id])
+  end
+
+
+
 end
