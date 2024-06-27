@@ -22,6 +22,8 @@ gem 'mailtrap'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'aws-sdk-s3'
 gem 'importmap-rails'
+gem 'turbo-rails'
+gem "stimulus-rails"
 
 group :development do
   gem "web-console"

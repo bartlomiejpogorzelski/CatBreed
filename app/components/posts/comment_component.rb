@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Posts::CommentComponent < ViewComponent::Base
+  include Turbo::StreamsHelper
   attr_reader :comment, :post, :current_user
 
   def initialize(comment:, post:, current_user:)
