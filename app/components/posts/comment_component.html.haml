@@ -1,4 +1,4 @@
-.div{class: "comment-#{comment.id} container container border border-black p-4 m-4"}
+.div{id: "comment_#{comment.id}", class: "comment-#{comment.id} container container border border-black p-4 m-4"}
   = comment.user.email
   - if current_user == comment.user
     .div.button-group.float-right.flex.items-center
