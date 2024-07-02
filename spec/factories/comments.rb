@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    post { nil }
-    user { nil }
+    association :post
+    association :user
+    body { "Test comment" } 
   end
 end
