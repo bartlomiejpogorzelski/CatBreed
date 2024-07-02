@@ -3,6 +3,9 @@ class Cat < ApplicationRecord
   has_one :reservation, dependent: :destroy
   accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: proc { |attributes| attributes['image'].blank? && attributes['id'].blank? }
 
+  validates :name, presence: true
+  validates :breed, presence: true
+  
   enum status: {
     available: "Available", #For translate
     reservation_reported: "Reservation reported",
@@ -15,6 +18,7 @@ class Cat < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "status", "updated_at", "neutered", "name"]
   end
+
 
 end
 
