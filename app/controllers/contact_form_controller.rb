@@ -5,14 +5,14 @@ class ContactFormController < ApplicationController
   end
 
   def create
-    @name = params[:contact_form][:name]
-    @subject = params[:contact_form][:subject]
-    @email = params[:contact_form][:email]
-    @message = params[:contact_form][:message]
+    name = params[:contact_form][:name]
+    subject = params[:contact_form][:subject]
+    email = params[:contact_form][:email]
+    message = params[:contact_form][:message]
 
-    AdminMailer.contact_email(@name, @subject, @email, @message).deliver_now
+    AdminMailer.contact_email(name, subject, email, message).deliver_now
     # flash[:success] = "Your message has been sent successfully."
-    render HomeComponent.new
-end
+    redirect_to root_path
+  end
 
 end
