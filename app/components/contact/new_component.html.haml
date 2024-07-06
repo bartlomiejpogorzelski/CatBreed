@@ -1,16 +1,16 @@
 .flex.items-center.justify-center.p-12
   .mx-auto.w-full{class: "max-w-[550px]"}
-    = form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "mb-5" do |form|
-      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D]", for: "name"}
-        = form.label :name, class: "text-lg font-medium"
-        = form.text_field :name, class: ""
-      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D]", for: "subject"}
-        = form.label :subject, class: "text-lg font-medium"
-        = form.text_field :subject, class: "form-control mt-2"
-      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D]", for: "email"}
-        = form.label :email, class: "mb-3.block.text-base.font-medium text-[#07074D]"
-        = form.email_field :email, class: "form-control mt-2"
-      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D]", for: "message"}
-        = form.label :message, class: "text-lg font-medium"
-        = form.text_area :message, class: "form-control mt-2"
+    = form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, data: { turbo: false },  class: "mb-5" do |form|
+      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D] flex items-center"}
+        = form.label :name, class: "text-lg font-medium mr-4 flex-shrink-0", style: "min-width: 80px;"
+        = form.text_field :name, class: "form-control flex-grow"
+      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D] flex items-center"}
+        = form.label :subject, class: "text-lg font-medium mr-4 flex-shrink-0", style: "min-width: 80px;"
+        = form.text_field :subject, class: "form-control flex-grow"
+      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D] flex items-center"}
+        = form.label :email, class: "text-lg font-medium mr-4 flex-shrink-0", style: "min-width: 80px;"
+        = form.email_field :email, class: "form-control flex-grow"
+      .form-group.mb-3.block.text-base.font-medium{class: "text-[#07074D] flex items-center"}
+        = form.label :message, class: "text-lg font-medium mr-4 flex-shrink-0", style: "min-width: 80px;"
+        = form.text_area :message, class: "form-control flex-grow"
       = form.submit "Submit", class: "btn btn-primary mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
