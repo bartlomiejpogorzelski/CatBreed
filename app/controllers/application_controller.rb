@@ -9,7 +9,12 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
   def set_default_url_options
     Rails.application.routes.default_url_options[:host] = request.base_url
+  end
+  
+  def default_url_options
+    { locale: I18n.locale }
   end
 end
