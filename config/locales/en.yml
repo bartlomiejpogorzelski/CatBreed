@@ -64,6 +64,14 @@ en:
       kittens: Kittens
       contact: Contact
       main_page: Main Page
+    kittens:
+      kitten_details:
+        reservation: Reservation
+    reservations:
+      reservation:
+        request: Send Request
+        information: You will receive an account number for the advance payment by e-mail
+        date: Please enter the date from when you are available
 
 
 

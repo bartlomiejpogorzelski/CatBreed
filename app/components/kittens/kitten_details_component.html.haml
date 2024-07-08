@@ -8,4 +8,5 @@
   %p.row_style=cat.notes
   %p.row_style=cat.vaccination_information
   - if cat.available?
-    = link_to 'Reserwuj', new_reservation_path(cat_id: cat.id)
+    = link_to t('views.kittens.kitten_details.reservation'), new_reservation_path(cat_id: cat.id)
+
