@@ -5,13 +5,13 @@ class Cats::ReservationsController < ApplicationController
     render Kittens::Reservations::ReservationComponent.new(cat: @cat, reservation: @reservation)
   end
 
-  def create  
+  def create
     @cat = Cat.find(params[:reservation][:cat_id])
     @reservation = @cat.build_reservation(reservation_params)
-
+  
     if @reservation.save
       @cat.update(status: :reservation_reported)
-      render HomeComponent.new #TO change
+        redirect_to root_path 
     else
       render Kittens::Reservations::ReservationComponent.new(cat: @cat, reservation: @reservation)
     end

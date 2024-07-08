@@ -1,9 +1,12 @@
-= form_with(model: @reservation, local: true) do |form|
-
-  = form.label :start_date
-  = form.datetime_field :start_date
+= form_with(model: @reservation, local: true, data: { turbo: false }) do |form|
+  =t('views.reservations.reservation.date')
+  .div
+    = form.label :start_date
+    = form.datetime_field :start_date
 
   = form.hidden_field :cat_id, value: @cat.id
-  %span Na emeila dostaniesz numer konta do wplaty zalicznki
+  =t('views.reservations.reservation.information')
 
-  = form.submit 'Wyslij prosbe o rezerwacje'
+  .border-button
+    = form.submit t('views.reservations.reservation.request')
+  

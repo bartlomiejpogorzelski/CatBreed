@@ -64,6 +64,14 @@ pl:
       kittens: Kociaki
       contact: Kontakt
       main_page: Strona Główna
+    kittens:
+      kitten_details:
+        reservation: Rezerwacja
+    reservations:
+      reservation:
+        request: Wyslij prośbę
+        information: E-mailem otrzymasz numer konta do wpłaty zaliczki
+        date: Podaj datę od kiedy jesteś dostępny/a
 
 
 
