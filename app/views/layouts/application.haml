@@ -12,7 +12,7 @@
     = javascript_importmap_tags
 
   %body.bg-grey-3
-    = render NavBarComponent.new(current_path: request.path)
+    = render NavBarComponent.new(current_path: request.path, logged_in: user_signed_in?)
     = yield
 
     
