@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     resources :comments
   end
   get "/pages/:page" => "pages#show",  as: 'pages'
+  get '/unauthorized', to: 'unauthorized#show', as: 'unauthorized'
 end
