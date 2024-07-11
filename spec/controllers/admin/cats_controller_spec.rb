@@ -46,19 +46,19 @@ RSpec.describe Admin::CatsController, type: :controller do
         post :create, params: params
       }.to change(Cat, :count).by(0)
 
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(unauthorized_path)
     end
 
     it "#new: try access to new" do      
       get :new
 
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(unauthorized_path)
     end
 
     it "#index: try access to index" do      
       get :index
 
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(unauthorized_path)
       expect(response).to have_http_status(302)
     end
   end
