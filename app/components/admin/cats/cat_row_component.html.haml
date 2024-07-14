@@ -1,0 +1,19 @@
+%tr.h-16{id: "cat_#{@cat.id}"}
+  %td.px-4.py-2.border.text-center= @cat.id
+  %td.px-4.py-2.border.text-center= @cat.name
+  %td.px-4.py-2.border.text-center= @cat.breed
+  %td.px-4.py-2.border.text-center= @cat.color
+  %td.px-4.py-2.border.text-center= @cat.date_of_birth
+  %td.px-4.py-2.border.text-center= @cat.gender
+  %td.px-4.py-2.border.text-center= @cat.price
+  %td.px-4.py-2.border.text-center= @cat.status
+  %td.px-4.py-2.border.text-center= @cat.location
+  %td.px-4.py-2.border.text-center= @cat.notes        
+  %td.px-4.py-2.border.text-center
+    - if @cat.reservation_reported?
+      = button_to "zatwierdz rezerwacje", accept_reservation(cat: @cat), method: :put, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+    -# = link_to 'Show', @cat
+    |
+    -# = link_to 'Edytuj', edit_cat_path(@cat), class: "text-blue-500 hover:text-blue-700"
+    |
+    -# = link_to 'Usuń', @cat, method: :delete, data: { confirm: 'Czy na pewno?' }, class: "text-red-500 hover:text-red-700"

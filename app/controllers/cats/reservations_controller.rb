@@ -8,10 +8,10 @@ class Cats::ReservationsController < ApplicationController
   def create
     @cat = Cat.find(params[:reservation][:cat_id])
     @reservation = @cat.build_reservation(reservation_params)
-  
+
     if @reservation.save
       @cat.update(status: :reservation_reported)
-        redirect_to root_path 
+      render HomeComponent.new #TO change
     else
       render Kittens::Reservations::ReservationComponent.new(cat: @cat, reservation: @reservation)
     end
@@ -19,10 +19,17 @@ class Cats::ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])   
-    @reservation.update(deposit_paid: params[:deposit_paid] )
-    @reservation.cat.update(status: determine_status )
-
-    render HomeComponent.new
+   
+    if (@reservation.update(deposit_paid: params[:deposit_paid]) && @reservation.cat.update(status: determine_status))
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            "cat_#{@reservation.cat.id}",
+            Admin::Cats::CatRowComponent.new(cat: @reservation.cat)
+          )
+        end
+      end
+    end
    end
 
   private
