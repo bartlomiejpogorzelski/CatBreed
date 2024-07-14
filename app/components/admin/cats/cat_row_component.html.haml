@@ -1,0 +1,19 @@
+%tr.h-16{id: "cat_#{@cat.id}"}
+  %td= @cat.id
+  %td.text-center= @cat.name
+  %td.text-center= @cat.breed
+  %td= @cat.color
+  %td= @cat.date_of_birth
+  %td= @cat.gender
+  %td.text-center= @cat.price
+  %td.text-center.p-2= @cat.status
+  %td.text-center= @cat.location
+  %td= @cat.notes        
+  %td.p-2
+    - if @cat.reservation_reported?      
+      = button_to "zatwierdz rezerwacje", accept_reservation(cat: @cat), method: :put
+    -# = link_to 'Show', @cat
+    |
+    -# = link_to 'Edytuj', edit_cat_path(@cat)
+    |
+    -# = link_to 'Usuń', @cat, method: :delete, data: { confirm: 'Czy na pewno?' }

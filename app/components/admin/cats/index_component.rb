@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::Cats::IndexComponent < ViewComponent::Base
+  include Turbo::StreamsHelper
 
   attr_reader :cats
 
@@ -10,7 +11,4 @@ class Admin::Cats::IndexComponent < ViewComponent::Base
 
   private
 
-  def accept_reservation(cat:)
-    reservation_path(id: cat&.reservation&.id, deposit_paid: :true)
-  end  
 end
