@@ -36,14 +36,14 @@ RSpec.describe Cats::ReservationsController, type: :controller do
 
     context 'with valid params' do
       it 'updates the reservation' do
-        patch :update, params: { id: reservation.id, deposit_paid: true }
+        patch :update, params: { id: reservation.id, deposit_paid: true }, format: :turbo_stream
         reservation.reload
         expect(reservation.deposit_paid).to eq(true)
       end
   
       it 'updates the cat status' do
         expect do
-          patch :update, params: { id: reservation.id, deposit_paid: true }
+          patch :update, params: { id: reservation.id, deposit_paid: true }, format: :turbo_stream
           reservation.cat.reload
         end.to change(reservation.cat, :status).to('reserved')
       end
