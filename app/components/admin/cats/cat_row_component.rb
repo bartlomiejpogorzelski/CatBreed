@@ -11,7 +11,7 @@ class Admin::Cats::CatRowComponent < ViewComponent::Base
 
   private
 
-  def accept_reservation(cat:)
-    reservation_path(id: cat&.reservation&.id, deposit_paid: :true)
-  end  
+  def reservation_action(cat:, deposit_paid:)
+    reservation_path(id: cat&.reservation&.id, deposit_paid: deposit_paid)
+  end
 end
