@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create, :update]
   end
   namespace :admin do
-    resources :cats, only: [:index, :new, :create]
+    resources :cats, only: [:index, :new, :create, :update]
   end
 
   resources :contact_form, only: %i[new create]
