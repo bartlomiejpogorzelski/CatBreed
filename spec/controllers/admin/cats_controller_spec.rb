@@ -62,5 +62,34 @@ RSpec.describe Admin::CatsController, type: :controller do
       expect(response).to have_http_status(302)
     end
   end
+
+  let(:cat) { create(:cat, status: "reserved") }
+
+  describe "#update" do
+    context "with valid params" do
+      let(:valid_params) {
+        {
+          id: cat.id,
+          status: "sold",
+          format: :turbo_stream
+        }
+      }
+
+      it "updates the cat status" do
+        patch :update, params: valid_params
+
+        cat.reload
+        expect(cat.status).to eq("sold")
+      end
+
+      it "renders turbo_stream response on success" do
+        patch :update, params: valid_params
+
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include("turbo-stream")
+        expect(response.body).to include("cat_#{cat.id}")
+      end
+    end
+  end
 end
 

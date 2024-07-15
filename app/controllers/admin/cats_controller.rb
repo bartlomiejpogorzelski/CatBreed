@@ -22,9 +22,19 @@ class Admin::CatsController < ApplicationController
     render Admin::Cats::IndexComponent.new(cats: @cats)
   end
 
-  # def update
-  #  binding.pry
-  # end
+  def update
+    @cat = Cat.find(params[:id])
+    if @cat.update(status: params["status"])
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            "cat_#{@cat.id}",
+            Admin::Cats::CatRowComponent.new(cat: @cat)
+          )
+        end
+      end
+    end
+   end
   
   def create  
     @cat = Cat.new(cat_params)

@@ -12,7 +12,9 @@
   %td.px-4.py-2.border.text-center
     - if @cat.reservation_reported?
       = button_to "zatwierdz rezerwacje", reservation_action(cat: @cat, deposit_paid: true), method: :put, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-      = button_to "anuluj rezerwację", reservation_action(cat: @cat, deposit_paid: false), method: :put, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"      
+      = button_to "anuluj rezerwację", reservation_action(cat: @cat, deposit_paid: false), method: :put, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+    - if @cat.reserved?
+      = button_to "Zatwierdz jako sprzedany", sold_action(cat: @cat), method: :put, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
     -# = link_to 'Show', @cat
     |
     -# = link_to 'Edytuj', edit_cat_path(@cat), class: "text-blue-500 hover:text-blue-700"
