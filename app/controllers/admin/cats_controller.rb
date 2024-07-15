@@ -54,7 +54,8 @@ class Admin::CatsController < ApplicationController
     if @cat.save
       redirect_to admin_cats_path
     else
-      render :new
+      # render :new
+      # TODO Wait for validation
     end
   end
 
