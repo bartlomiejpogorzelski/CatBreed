@@ -57,9 +57,9 @@ end
 
 puts "Seeding posts..."
 posts = [
-  { title: 'Pierwszy wpis', content: 'Treść pierwszego wpisu na blogu.' },
-  { title: 'Drugi wpis', content: 'Treść drugiego wpisu na blogu.' },
-  { title: 'Trzeci wpis', content: 'Treść trzeciego wpisu na blogu.' }
+  { title: 'Pierwszy wpis', content: 'Treść pierwszego wpisu na blogu.', user: User.first },
+  { title: 'Drugi wpis', content: 'Treść drugiego wpisu na blogu.', user: User.first },
+  { title: 'Trzeci wpis', content: 'Treść trzeciego wpisu na blogu.', user: User.first }
 ]
 
 posts.each_with_index do |post, index|
