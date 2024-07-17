@@ -7,6 +7,6 @@ class NavBarComponent < ViewComponent::Base
   end
 
   def active_class(path)
-    "bg-gray-900 text-white" if path.include?(@current_path)
+    "bg-gray-900 text-white" if (path.include?(@current_path) && ((@current_path != "/") || (path.include?("/home?"))) )
   end
 end
