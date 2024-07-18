@@ -72,6 +72,19 @@ pl:
         request: Wyslij prośbę
         information: E-mailem otrzymasz numer konta do wpłaty zaliczki
         date: Podaj datę od kiedy jesteś dostępny/a
+  cats:
+    breeds:
+      abyssinian: Abisyński
+      bengal: Bengalski
+      birman: Birmański
+      british_shorthair: Brytyjski Krótkowłosy
+      sphynx: Sfinks
+      maine_coon: Maine Coon
+      russian_blue: Rosyjski Niebieski
+      scottish_fold: Szkocki Zwisłouchy
+      siamese: Syjamski
+      persian: Perski
+
 
 
 
