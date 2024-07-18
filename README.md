@@ -7,7 +7,7 @@ CatBreed
 An application intended for cat breeders. Description of cats, possibility of booking, blog, contact form.
 
 # Link to the working version of the project.
-https://catbreed.fly.dev/
+https://catbreed-dry-frog-7835.fly.dev
 
 Technologies and tools used:
 
