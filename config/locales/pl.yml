@@ -84,6 +84,11 @@ pl:
       scottish_fold: Szkocki Zwisłouchy
       siamese: Syjamski
       persian: Perski
+    statuses:
+      available: "Dostępny"
+      reserved: "Zarezerwowany"
+      reservation_reported: "Zgłoszona rezerwacja"
+      sold: "Sprzedany"
 
 
 

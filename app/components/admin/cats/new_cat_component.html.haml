@@ -49,7 +49,7 @@
 
   .form-group
     = f.label :status
-    = f.text_field :status, class: 'form-control'
+    = f.select :status, options_for_select(Cat.status_options, @cat.status || 'available'), {}, class: 'form-control'
 
   .form-group
     = f.label :vaccination_information

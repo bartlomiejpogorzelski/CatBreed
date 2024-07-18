@@ -84,6 +84,11 @@ en:
       scottish_fold: Scottish Fold
       siamese: Siamese
       persian: Persian
+    statuses:
+      available: "Available"
+      reserved: "Reserved"
+      reservation_reported: "Reservation Reported"
+      sold: "Sold"
 
 
 

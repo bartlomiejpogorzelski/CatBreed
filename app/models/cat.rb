@@ -16,6 +16,8 @@ class Cat < ApplicationRecord
     persian
   ].freeze
 
+  STATUSES = ['available', 'reserved', 'reservation_reported', 'sold']
+
   validates :name, presence: true
   validates :breed, inclusion: { in: BREEDS }  
 
@@ -34,6 +36,10 @@ class Cat < ApplicationRecord
 
   def self.breed_options
     BREEDS.map { |breed| [I18n.t("cats.breeds.#{breed}"), breed] }
+  end
+
+  def self.status_options
+    STATUSES.map { |status| [I18n.t("cats.statuses.#{status}"), status] }    
   end
 
 end
