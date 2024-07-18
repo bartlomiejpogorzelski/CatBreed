@@ -80,6 +80,6 @@ Rails.application.configure do
   #   authentication: :cram_md5
   # }
   
-  config.hosts << "catbreed.fly.dev"
+  config.hosts << ENV["CATBREED_DRY"]
 
 end
