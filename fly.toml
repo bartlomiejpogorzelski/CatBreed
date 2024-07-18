@@ -1,4 +1,4 @@
-app = "catbreed"
+app = 'catbreed-dry-frog-7835'
 primary_region = "arn"
 console_command = "/bin/bash"
 
