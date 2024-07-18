@@ -39,3 +39,5 @@
 /public/uploads/*
 
 .env
+.env
+.env
