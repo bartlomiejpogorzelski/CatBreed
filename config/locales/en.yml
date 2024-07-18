@@ -72,6 +72,23 @@ en:
         request: Send Request
         information: You will receive an account number for the advance payment by e-mail
         date: Please enter the date from when you are available
+  cats:
+    breeds:
+      abyssinian: Abyssinian
+      bengal: Bengal
+      birman: Birman
+      british_shorthair: British Shorthair
+      sphynx: Sphynx
+      maine_coon: Maine Coon
+      russian_blue: Russian Blue
+      scottish_fold: Scottish Fold
+      siamese: Siamese
+      persian: Persian
+    statuses:
+      available: "Available"
+      reserved: "Reserved"
+      reservation_reported: "Reservation Reported"
+      sold: "Sold"
 
 
 

@@ -10,10 +10,13 @@
 # wget -O /docker/app/public/uploads/cat1.png https://raw.githubusercontent.com/bartlomiejpogorzelski/CatBreed/master/app/assets/images/cat1.png
 # Staging:     photos: [Photo.new(image: Rack::Test::UploadedFile.new("/docker/app/public/uploads/cat1.png"))],
 puts "Seeding cats..."
+statuses = [:available, :reserved, :reservation_reported, :sold]
+
 10.times do |i|
+  cat_status = statuses.sample
   cat = Cat.new(
     name: Faker::Creature::Cat.name,
-    breed: Faker::Creature::Cat.breed,
+    breed: Cat::BREEDS.sample,
     # color: Faker::Creature::Cat.color,
     date_of_birth: Faker::Date.birthday(min_age: 1, max_age: 15),
     gender: ['Male', 'Female'].sample,
@@ -21,7 +24,7 @@ puts "Seeding cats..."
     photos: [Photo.new(image: Rack::Test::UploadedFile.new("app/assets/images/cat1.png"))],
     pedigree_information: Faker::Lorem.sentence,
     price: Faker::Commerce.price(range: 50..500.0, as_string: true),
-    status: [:available, :reserved, :reservation_reported, :sold].sample,
+    status: cat_status,
     vaccination_information: Faker::Lorem.sentence,
     health_status: ['Healthy', 'Sick', 'Under Treatment'].sample,
     owner_information: Faker::Name.name,
@@ -33,7 +36,23 @@ puts "Seeding cats..."
   )
 
   if cat.save
-    puts "Cat #{i + 1} created: #{cat.name}, #{cat.breed}"
+    puts "Cat #{i + 1} created: #{cat.name}, #{cat.breed}, #{cat.status}"
+
+    if [:reserved, :reservation_reported, :sold].include?(cat_status)
+      deposit_paid = [:reserved, :sold].include?(cat_status) ? true : false
+      reservation = Reservation.new(
+        cat: cat,
+        start_date: Faker::Date.backward(days: 30),
+        end_date: Faker::Date.forward(days: 30),
+        deposit_paid: deposit_paid
+      )
+
+      if reservation.save
+        puts "Reservation created for Cat #{i + 1}"
+      else
+        puts "Error creating reservation for Cat #{i + 1}: #{reservation.errors.full_messages.join(", ")}"
+      end
+    end
   else
     puts "Error creating cat #{i + 1}: #{cat.errors.full_messages.join(", ")}"
   end

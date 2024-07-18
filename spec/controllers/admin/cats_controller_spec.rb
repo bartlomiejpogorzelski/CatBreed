@@ -10,7 +10,7 @@ RSpec.describe Admin::CatsController, type: :controller do
     {
       cat: {
         name: "Example Cat",
-        breed: "Example Breed",
+        breed: Cat::BREEDS.sample,
         status: "available"
       }
     }

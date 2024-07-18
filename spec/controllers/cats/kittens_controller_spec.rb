@@ -4,8 +4,8 @@ require "rails_helper"
 
 RSpec.describe Cats::KittensController, type: :controller do
   
-  let(:cat_1) { Cat.create(is_parent: false, name: "name1", breed: "breed1") }
-  let(:cat_2) { Cat.create(is_parent: false, name: "name2", breed: "breed2") }
+  let(:cat_1) { Cat.create(is_parent: false, name: "name1", breed: "abyssinian") }
+  let(:cat_2) { Cat.create(is_parent: false, name: "name2", breed: "persian") }
 
   describe 'GET #index' do
 

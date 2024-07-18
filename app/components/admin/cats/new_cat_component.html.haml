@@ -12,7 +12,7 @@
 
   .form-group
     = f.label :breed
-    = f.text_field :breed, class: 'form-control'
+    = f.select :breed, options_for_select(Cat.breed_options, @cat.breed), prompt: t('helpers.select.prompt', model: Cat.model_name.human, attribute: Cat.human_attribute_name(:breed)), class: 'form-control'
 
   .form-group
     = f.label :color
@@ -49,7 +49,7 @@
 
   .form-group
     = f.label :status
-    = f.text_field :status, class: 'form-control'
+    = f.select :status, options_for_select(Cat.status_options, @cat.status || 'available'), {}, class: 'form-control'
 
   .form-group
     = f.label :vaccination_information
