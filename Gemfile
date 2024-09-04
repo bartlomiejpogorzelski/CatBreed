@@ -41,9 +41,11 @@ group :development, :test do
 end
 
 group :test do
-  # gem 'factory_bot_rails', '~> 6.2'
-  gem "test-prof", "~> 1.2"
+  gem 'test-prof', "~> 1.2"
   gem 'rails-controller-testing'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
