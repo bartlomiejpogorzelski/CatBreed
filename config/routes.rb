@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  resources :quizzes, only: [:index] do
+    post :submit_answer, on: :member
+  end
   get "/pages/:page" => "pages#show",  as: 'pages'
   get '/unauthorized', to: 'unauthorized#show', as: 'unauthorized'
 end
