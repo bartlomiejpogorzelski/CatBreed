@@ -1,4 +1,10 @@
 class QuizzesController < ApplicationController
+  
+  def index
+    @quizzes = Quiz.all
+    render(Quizzes::QuizListComponent.new(quizzes: @quizzes))
+  end
+
   def new
   end
 
