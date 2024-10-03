@@ -1,0 +1,10 @@
+-# app/components/quiz_show_component.html.haml
+
+%h1 Quiz
+%p
+  %strong Question:
+  = quiz.question
+%p
+  %strong Answer:
+  = quiz.answer
+= link_to 'Create Another Quiz', new_quiz_path, class: "btn btn-secondary"

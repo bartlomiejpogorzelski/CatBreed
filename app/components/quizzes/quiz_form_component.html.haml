@@ -1,0 +1,5 @@
+-# app/components/quiz_form_component.html.haml
+
+%h1 Create a New Quiz
+= form_with url: quizzes_path, local: true do |form|
+  = form.submit "Generate Quiz", class: "btn btn-primary"

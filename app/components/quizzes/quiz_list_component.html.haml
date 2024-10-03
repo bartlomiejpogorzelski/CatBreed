@@ -1,0 +1,26 @@
+%h1 Lista Quizów
+
+- @quizzes.each do |quiz|
+  .quiz
+    %p= quiz.question
+
+    %form{ action: "/quizzes/#{quiz.id}/submit_answer", method: "post", data: { controller: "quiz", action: "quiz#submitAnswer" } }
+      %label
+        %input{ type: "radio", name: "answer", value: "A", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+        = quiz.choice_a
+      %br
+      %label
+        %input{ type: "radio", name: "answer", value: "B", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice }  }
+        = quiz.choice_b
+      %br
+      %label
+        %input{ type: "radio", name: "answer", value: "C", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+        = quiz.choice_c
+      %br
+      %label
+        %input{ type: "radio", name: "answer", value: "D", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice }  }
+        = quiz.choice_d
+      %br
+      -# %button{ type: "submit" } Zatwierdź odpowiedź
+      %br
+

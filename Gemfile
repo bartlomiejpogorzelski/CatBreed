@@ -24,6 +24,7 @@ gem 'aws-sdk-s3'
 gem 'importmap-rails'
 gem 'turbo-rails'
 gem "stimulus-rails"
+gem 'httparty'
 
 group :development do
   gem "web-console"

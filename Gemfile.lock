@@ -106,6 +106,7 @@ GEM
     aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.19)
+    bigdecimal (3.1.8)
     bindex (0.8.1)
     builder (3.2.4)
     cancancan (3.5.0)
@@ -113,6 +114,7 @@ GEM
     concurrent-ruby (1.2.2)
     content_disposition (1.0.0)
     crass (1.0.6)
+    csv (3.3.0)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.1.0)
@@ -145,6 +147,10 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -179,6 +185,8 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
     net-imap (0.4.4)
       date
       net-protocol
@@ -320,6 +328,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   haml
+  httparty
   image_processing (~> 1.0)
   importmap-rails
   jbuilder (~> 2.7)
