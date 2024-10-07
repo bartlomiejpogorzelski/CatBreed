@@ -15,6 +15,10 @@
     = f.select :breed, options_for_select(Cat.breed_options, @cat.breed), prompt: t('helpers.select.prompt', model: Cat.model_name.human, attribute: Cat.human_attribute_name(:breed)), class: 'form-control'
 
   .form-group
+    = f.label :is_parent
+    = f.check_box :is_parent, { class: 'form-check-input' }, 'true', 'false'
+
+  .form-group
     = f.label :color
     = f.text_field :color, class: 'form-control'
 

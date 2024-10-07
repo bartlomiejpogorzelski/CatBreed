@@ -70,7 +70,7 @@ class Admin::CatsController < ApplicationController
     params.require(:cat).permit(
       :name, :breed, :color, :date_of_birth, :gender, :description,
       :pedigree_information, :price, :status, :vaccination_information,
-      :health_status, :owner_information, :location, :neutered, :notes, :videos,
+      :health_status, :owner_information, :location, :neutered, :notes, :videos, :is_parent,
       photos_attributes: [:id, :_destroy, :image_1, :image_2, :image_3]
     )
   end  
