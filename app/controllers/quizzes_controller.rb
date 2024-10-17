@@ -1,4 +1,10 @@
 class QuizzesController < ApplicationController
+  
+  def index
+    @quizzes = Quiz.order("RANDOM()").limit(10)
+    render(Quizzes::QuizListComponent.new(quizzes: @quizzes))
+  end
+
   def new
   end
 

@@ -1,26 +1,23 @@
-%h1 Lista Quizów
+.div.max-w-md.mx-auto.bg-white.p-8.rounded-md.shadow-md
+  %h1.text-3xl.font-bold.mb-6.text-green-400.text-center.text-success Lista Quizów
+  - @quizzes.each do |quiz|
+    .quiz
+      .flex.flex-col.items-start.space-y-4
+        %p= quiz.question
+        %form{ action: "/quizzes/#{quiz.id}/submit_answer", method: "post", data: { controller: "quiz", action: "quiz#submitAnswer" } }
+          .space-y-4
+            .flex.items-center.space-x-4
+              %input{ type: "radio", name: "answer", value: "A", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+              %span= quiz.choice_a
+            .flex.items-center.space-x-4
+              %input{ type: "radio", name: "answer", value: "B", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+              %span= quiz.choice_b
+            .flex.items-center.space-x-4
+              %input{ type: "radio", name: "answer", value: "C", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+              %span= quiz.choice_c
+            .flex.items-center.space-x-4
+              %input{ type: "radio", name: "answer", value: "D", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+              %span= quiz.choice_d
 
-- @quizzes.each do |quiz|
-  .quiz
-    %p= quiz.question
-
-    %form{ action: "/quizzes/#{quiz.id}/submit_answer", method: "post", data: { controller: "quiz", action: "quiz#submitAnswer" } }
-      %label
-        %input{ type: "radio", name: "answer", value: "A", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
-        = quiz.choice_a
-      %br
-      %label
-        %input{ type: "radio", name: "answer", value: "B", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice }  }
-        = quiz.choice_b
-      %br
-      %label
-        %input{ type: "radio", name: "answer", value: "C", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
-        = quiz.choice_c
-      %br
-      %label
-        %input{ type: "radio", name: "answer", value: "D", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice }  }
-        = quiz.choice_d
-      %br
-      -# %button{ type: "submit" } Zatwierdź odpowiedź
-      %br
-
+          -# %button{ type: "submit" } Zatwierdź odpowiedź
+          %br
