@@ -2,14 +2,30 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["radio"]
+  static targets = ["radio", "element"]
 
-  // submitAnswer(event) {
+  connect() {
+    console.log("Start")
+    this.currentQuizIndex = 0;
+    this.showQuiz(this.currentQuizIndex);
+  }
 
-  //   event.preventDefault();
-  //   this.radioTargets.find(radio => radio.checked);  
-  //   console.log(selectedRadio.value);
-  // } 
+  showQuiz(index) {
+    this.elementTargets.forEach((element, i) => {
+      if (i === index) {
+        element.classList.remove("hidden");
+      } else {
+        element.classList.add("hidden");
+      }
+    });
+  }
+
+  nextQuiz() {
+    this.currentQuizIndex++;
+    if (this.currentQuizIndex < this.elementTargets.length) {
+      this.showQuiz(this.currentQuizIndex);
+    }
+  }
 
   selectOption(event) {
 
