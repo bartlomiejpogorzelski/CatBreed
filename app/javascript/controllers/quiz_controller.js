@@ -2,10 +2,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["radio", "element"]
+  static targets = ["radio", "element", "nextButton"]
 
   connect() {
-    console.log("Start")
+    // console.log("Next button:", this.nextButtonTarget); // Check: nextButtonTarget is accessible
     this.currentQuizIndex = 0;
     this.showQuiz(this.currentQuizIndex);
   }
@@ -18,6 +18,10 @@ export default class extends Controller {
         element.classList.add("hidden");
       }
     });
+
+    if (this.currentQuizIndex === this.elementTargets.length - 1) {
+      this.hideNextButton();
+    }
   }
 
   nextQuiz() {
@@ -27,6 +31,15 @@ export default class extends Controller {
     }
   }
 
+  hideNextButton() {
+    this.nextButtonTarget.classList.add("hidden"); 
+  }
+
+
+  showNextButton() {
+    this.nextButton.classList.remove("hidden"); // Add visible
+    // this.nextButton.disabled = false; // Or turn off button
+  }
   selectOption(event) {
 
     event.preventDefault();

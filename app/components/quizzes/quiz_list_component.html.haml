@@ -18,6 +18,6 @@
             .flex.items-center.space-x-4
               %input{ type: "radio", name: "answer", value: "D", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
               %span= quiz.choice_d
-        %button{ type: "button", data: { action: "quiz#nextQuiz" } } Dalej
-        -# %button{ type: "submit" } Zatwierdź odpowiedź
-        %br
+  %button#nextButton{ type: "button", data: { action: "quiz#nextQuiz", quiz_target: "nextButton" } } Dalej
+  -# %button{ type: "submit" } Zatwierdź odpowiedź
+
