@@ -2,7 +2,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["radio", "element", "nextButton"]
+  static targets = ["radio", "element", "nextButton", "previousButton"]
 
   connect() {
     // console.log("Next button:", this.nextButtonTarget); // Check: nextButtonTarget is accessible
@@ -11,6 +11,9 @@ export default class extends Controller {
   }
 
   showQuiz(index) {
+    console.log("Displaying quiz with index:", index);
+    console.log("Number of quiz elements:", this.elementTargets.length);
+
     this.elementTargets.forEach((element, i) => {
       if (i === index) {
         element.classList.remove("hidden");
@@ -19,15 +22,30 @@ export default class extends Controller {
       }
     });
 
-    if (this.currentQuizIndex === this.elementTargets.length - 1) {
-      this.hideNextButton();
-    }
+    this.updateNavigationButtons();
   }
 
   nextQuiz() {
     this.currentQuizIndex++;
-    if (this.currentQuizIndex < this.elementTargets.length) {
-      this.showQuiz(this.currentQuizIndex);
+    this.showQuiz(this.currentQuizIndex);
+  }
+
+  previousQuiz() {
+    this.currentQuizIndex--;
+    this.showQuiz(this.currentQuizIndex);
+  }
+
+  updateNavigationButtons() {
+    if (this.currentQuizIndex === 0) {
+      this.hidePreviousButton();
+    } else {
+      this.showPreviousButton();
+    }
+
+    if (this.currentQuizIndex === this.elementTargets.length - 1) {
+      this.hideNextButton();
+    } else {
+      this.showNextButton();
     }
   }
 
@@ -35,11 +53,18 @@ export default class extends Controller {
     this.nextButtonTarget.classList.add("hidden"); 
   }
 
+  hidePreviousButton() {
+    this.previousButtonTarget.classList.add("hidden"); 
+  }
 
   showNextButton() {
-    this.nextButton.classList.remove("hidden"); // Add visible
-    // this.nextButton.disabled = false; // Or turn off button
+    this.nextButtonTarget.classList.remove("hidden"); 
   }
+
+  showPreviousButton() {
+    this.previousButtonTarget.classList.remove("hidden"); 
+  }
+  
   selectOption(event) {
 
     event.preventDefault();
