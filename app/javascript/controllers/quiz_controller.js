@@ -54,7 +54,7 @@ export default class extends Controller {
   }
 
   hidePreviousButton() {
-    this.previousButtonTarget.classList.add("hidden"); 
+    this.previousButtonTarget.classList.add("invisible"); 
   }
 
   showNextButton() {
@@ -62,7 +62,7 @@ export default class extends Controller {
   }
 
   showPreviousButton() {
-    this.previousButtonTarget.classList.remove("hidden"); 
+    this.previousButtonTarget.classList.remove("invisible");
   }
   
   selectOption(event) {

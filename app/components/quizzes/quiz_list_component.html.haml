@@ -4,10 +4,8 @@
     %p No quizzes available.
   - @quizzes.each_with_index do |quiz, index|
     .quiz.hidden{ data: { quiz_target: "element", quiz_index: index } }
-      :javascript
-        console.log("Quiz index: #{index}");
       .flex.flex-col.items-start.space-y-4
-        %p= quiz.question
+        %p.w-full.break-words.h-12.overflow-y-auto= quiz.question
         %form{ action: "/quizzes/#{quiz.id}/submit_answer", method: "post", data: { controller: "quiz", action: "quiz#submitAnswer" } }
           .space-y-4
             .flex.items-center.space-x-4
@@ -22,7 +20,8 @@
             .flex.items-center.space-x-4
               %input{ type: "radio", name: "answer", value: "D", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
               %span= quiz.choice_d
-  %button#previousButton{ type: "button", data: { action: "quiz#previousQuiz", quiz_target: "previousButton" } } Cofnij
-  %button#nextButton{ type: "button", data: { action: "quiz#nextQuiz", quiz_target: "nextButton" } } Dalej
-  -# %button{ type: "submit" } Zatwierdź odpowiedź
+  .div.flex.justify-between.pt-6
+    %button.bg-blue-500.hover:bg-blue-600.text-white.px-2.py-1.rounded-md#previousButton{ type: "button", data: { action: "quiz#previousQuiz", quiz_target: "previousButton" } } Cofnij
+    %button.bg-blue-500.hover:bg-blue-600.text-white.px-2.py-1.rounded-md#nextButton{ type: "button", data: { action: "quiz#nextQuiz", quiz_target: "nextButton" } } Dalej
+    -# %button{ type: "submit" } Zatwierdź odpowiedź
 
