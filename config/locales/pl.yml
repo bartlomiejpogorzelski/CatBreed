@@ -64,6 +64,7 @@ pl:
       kittens: Kociaki
       contact: Kontakt
       main_page: Strona Główna
+      quiz: Quiz
     kittens:
       kitten_details:
         reservation: Rezerwacja
