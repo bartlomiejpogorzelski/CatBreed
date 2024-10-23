@@ -1,0 +1,33 @@
+.div.max-w-md.mx-auto.bg-white.p-8.rounded-md.shadow-md{ data: { controller: "quiz" } }
+  %h1.text-3xl.font-bold.mb-6.text-green-400.text-center.text-success Lista Quizów
+  .quiz-list-container
+    - if @quizzes.empty? 
+      %p No quizzes available.
+    - else 
+      - @quizzes.each_with_index do |quiz, index|
+        .quiz.hidden{ data: { quiz_target: "element", quiz_index: index } }
+          .flex.flex-col.items-start.space-y-4
+            %p.w-full.break-words.h-12.overflow-y-auto= quiz.question
+            %form{ action: "/quizzes/#{quiz.id}/submit_answer", method: "post", data: { action: "quiz#submitAnswer" } }
+              .space-y-4
+                .flex.items-center.space-x-4
+                  %input{ type: "radio", name: "answer", value: "A", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+                  %span= quiz.choice_a
+                .flex.items-center.space-x-4
+                  %input{ type: "radio", name: "answer", value: "B", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+                  %span= quiz.choice_b
+                .flex.items-center.space-x-4
+                  %input{ type: "radio", name: "answer", value: "C", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+                  %span= quiz.choice_c
+                .flex.items-center.space-x-4
+                  %input{ type: "radio", name: "answer", value: "D", data: { action: "quiz#selectOption", target: "quiz.radio", "correct-answer": quiz.correct_choice } }
+                  %span= quiz.choice_d
+
+  .div.flex.justify-between.pt-6.quiz-navigation{ data: { quiz_target: "navigation" } }
+    %button.bg-blue-500.hover:bg-blue-600.text-white.px-2.py-1.rounded-md#previousButton{ type: "button", data: { action: "quiz#previousQuiz", quiz_target: "previousButton" } } Back
+    %button.bg-blue-500.hover:bg-blue-600.text-white.px-2.py-1.rounded-md#nextButton{ type: "button", data: { action: "quiz#nextQuiz", quiz_target: "nextButton" } } Next
+
+  .result.hidden{ data: { quiz_target: "result" } }
+    %p.text-center.font-bold.text-2xl Twój wynik to:
+    %form{ action: quizzes_path, method: 'get' }
+      %button.bg-green-500.hover:bg-green-600.text-white.px-4.py-2.mt-4.rounded-md{ type: 'submit' } Restartuj quiz
