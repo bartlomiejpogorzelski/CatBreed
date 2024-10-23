@@ -1,19 +1,22 @@
-// app/javascript/controllers/quiz_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["radio", "element", "nextButton", "previousButton"]
+  static targets = ["radio", "element", "nextButton", "previousButton", "result", "navigation"]
 
   connect() {
-    // console.log("Next button:", this.nextButtonTarget); // Check: nextButtonTarget is accessible
     this.currentQuizIndex = 0;
+    this.correctAnswers = 0; // Count correct answers
+    this.totalQuestions = this.elementTargets.length; // Count of questions
+    this.elementTargets.forEach(element => {
+      element.querySelectorAll("input[type='radio']").forEach(input => {
+          input.checked = false; // Restart checked
+      });
+    });
+
     this.showQuiz(this.currentQuizIndex);
   }
 
   showQuiz(index) {
-    console.log("Displaying quiz with index:", index);
-    console.log("Number of quiz elements:", this.elementTargets.length);
-
     this.elementTargets.forEach((element, i) => {
       if (i === index) {
         element.classList.remove("hidden");
@@ -26,13 +29,19 @@ export default class extends Controller {
   }
 
   nextQuiz() {
-    this.currentQuizIndex++;
-    this.showQuiz(this.currentQuizIndex);
+    if (this.currentQuizIndex < this.totalQuestions - 1) {
+      this.currentQuizIndex++;
+      this.showQuiz(this.currentQuizIndex);
+    } else {
+      this.showResult(); // Finish quiz and show result
+    }
   }
 
   previousQuiz() {
-    this.currentQuizIndex--;
-    this.showQuiz(this.currentQuizIndex);
+    if (this.currentQuizIndex > 0) {
+      this.currentQuizIndex--;
+      this.showQuiz(this.currentQuizIndex);
+    }
   }
 
   updateNavigationButtons() {
@@ -42,70 +51,50 @@ export default class extends Controller {
       this.showPreviousButton();
     }
 
-    if (this.currentQuizIndex === this.elementTargets.length - 1) {
-      this.hideNextButton();
+    // For last question/quiz
+    if (this.currentQuizIndex === this.totalQuestions - 1) {
+      this.nextButtonTarget.textContent = "Finish";
     } else {
-      this.showNextButton();
+      this.nextButtonTarget.textContent = "Next";
     }
-  }
-
-  hideNextButton() {
-    this.nextButtonTarget.classList.add("hidden"); 
   }
 
   hidePreviousButton() {
     this.previousButtonTarget.classList.add("invisible"); 
   }
 
-  showNextButton() {
-    this.nextButtonTarget.classList.remove("hidden"); 
-  }
-
   showPreviousButton() {
     this.previousButtonTarget.classList.remove("invisible");
   }
-  
-  selectOption(event) {
 
+  selectOption(event) {
     event.preventDefault();
 
     const correctAnswer = event.target.dataset.correctAnswer;
-    // const userAnswer = event.target.value;  // User answer like A, B, C, D
     const form = event.target.closest("form");
 
-    //block choices after click
+    // Block options to chose
     form.querySelectorAll("input[type='radio']").forEach(input => {
       input.disabled = true;
     });
 
-    // Remove previous styles classes
-    form.querySelectorAll("input").forEach(input => {
-      input.classList.remove("bg-green-500", "bg-red-500", "text-white");
-    });
-  
-    // Text from answer, not A, B, C, D. 
     const selectedAnswerText = event.target.nextElementSibling.textContent.trim();
-    console.log("Correct " +correctAnswer );
-    console.log("Choice " +selectedAnswerText );
 
+    // Check correct anserws
     if (selectedAnswerText === correctAnswer) {
-      console.log("Correct answer");
+      this.correctAnswers++; // Add correct answer
       this.showCorrect(event.target);
     } else {
-      console.log("Failure answer");
       this.showIncorrect(event.target);
     }
   }
 
   showCorrect(target) {
-    console.log("form "+target);
     target.nextElementSibling.classList.add("bg-green-500", "text-white");
     this.showNotification("Poprawna odpowiedź!", "green");
   }
 
   showIncorrect(target) {
-    console.log("form "+target);
-
     target.nextElementSibling.classList.add("bg-red-500", "text-white");
     this.showNotification("Błędna odpowiedź!", "red");
   }
@@ -117,14 +106,49 @@ export default class extends Controller {
     notification.style.color = "white";
     notification.style.padding = "15px";
     notification.style.position = "fixed";
-    notification.style.top = "50%"; // Ustawia powiadomienie w pionie na środku
-    notification.style.left = "50%"; // Ustawia powiadomienie w poziomie na środku
-    notification.style.transform = "translate(-50%, -50%)"; // Przesunięcie o połowę szerokości i wysokości
-    notification.style.zIndex = "1000"; // Ustalamy wyższy z-index, aby było na wierzchu
-    notification.style.borderRadius = "8px"; // Zaokrąglenie rogów
-    notification.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)"; // Cień
+    notification.style.top = "50%";
+    notification.style.left = "50%";
+    notification.style.transform = "translate(-50%, -50%)";
+    notification.style.zIndex = "1000";
+    notification.style.borderRadius = "8px";
+    notification.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
     document.body.appendChild(notification);
-    setTimeout(() => notification.remove(), 3000); // Usuwa  po 3 sekundach
+    setTimeout(() => notification.remove(), 3000);
   }
+
+  showResult() {
+    // Hidden quizes
+    this.elementTargets.forEach(element => element.classList.add("hidden"));
+    
+    // hidden bottoms 
+    this.navigationTarget.classList.add("hidden");
+
+    // Show result
+    this.resultTarget.classList.remove("hidden");
+
+    const resultMessage = `Your result: ${this.correctAnswers} z ${this.totalQuestions}`;
+    this.resultTarget.querySelector("p").textContent = resultMessage;
+  }
+
+  // restartQuiz() {
+  //   // Resetowanie wyniku i ustawień
+  //   this.clearResults();
+  //   this.currentQuizIndex = 0;
+
+  //   // Użyj Fetch API do załadowania nowych quizów
+  //   fetch('/quizzes') // Wywołaj URL, który renderuje nową stronę z quizami
+  //       .then(response => response.text()) // Oczekujemy tekstu HTML
+  //       .then(html => {
+  //           // Zaktualizuj DOM z nowymi quizami
+  //           document.querySelector('.quiz-list-container').innerHTML = html; // Upewnij się, że masz odpowiedni kontener
+  //           this.connect(); // Ponownie połącz kontroler, aby zainicjować nowe quizy
+  //       })
+  //       .catch(error => console.error('Error loading quizzes:', error));
+  // }
+
+  // clearResults() {
+
+  // }
+
 
 }
