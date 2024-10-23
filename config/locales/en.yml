@@ -64,6 +64,7 @@ en:
       kittens: Kittens
       contact: Contact
       main_page: Main Page
+      quiz: Quiz
     kittens:
       kitten_details:
         reservation: Reservation
