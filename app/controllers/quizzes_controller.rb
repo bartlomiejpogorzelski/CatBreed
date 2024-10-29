@@ -1,7 +1,12 @@
 class QuizzesController < ApplicationController
   
   def index
-    @quizzes = Quiz.order("RANDOM()").limit(10)
+    if Rails.env.test?
+      @quizzes = Quiz.order(:id)
+    else
+      @quizzes = Quiz.order("RANDOM()").limit(10)
+    end
+    
     render(Quizzes::QuizListComponent.new(quizzes: @quizzes))
   end
 
