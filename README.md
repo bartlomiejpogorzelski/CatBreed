@@ -21,7 +21,7 @@ Technologies and tools used:
   - [RSpec](https://rspec.info/) - testing
   - [Docker](https://www.docker.com/) - containerization
   - [Devise](https://github.com/heartcombo/devise) - authentication
-  - [Cancancan] (https://github.com/CanCanCommunity/cancancan) - authorization
+  - [Cancancan](https://github.com/CanCanCommunity/cancancan) - authorization
   - [Ransack](https://github.com/activerecord-hackery/ransack) - search and filtering
   - [FactoryBot](https://github.com/thoughtbot/factory_bot) - test data creation
   - [Faker](https://github.com/faker-ruby/faker) - test data generation
@@ -34,6 +34,8 @@ Technologies and tools used:
   - [ViewComponent](https://github.com/github/view_component) - view components
   - [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) - maintaining clean database in tests
   - [dotenv-rails](https://github.com/bkeepers/dotenv) - environment variable management
+  - [Selenium](https://github.com/SeleniumHQ/selenium) - Browser automation tool
+  - [Capybara](https://github.com/teamcapybara/capybara) - Integration testing framework
 
 
 ## Installation
