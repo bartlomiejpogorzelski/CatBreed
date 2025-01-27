@@ -25,6 +25,7 @@ gem 'importmap-rails'
 gem 'turbo-rails'
 gem "stimulus-rails"
 gem 'httparty'
+gem 'devise-auth0'
 gem 'omniauth-auth0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 

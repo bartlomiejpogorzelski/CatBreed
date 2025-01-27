@@ -37,5 +37,10 @@ module CatBreed
     config.generators.template_engine = :haml
     config.i18n.available_locales = %i[pl en]
     config.i18n.default_locale = :pl
+
+    config.auth0 = ActiveSupport::OrderedOptions.new
+    config.auth0.client_id = ENV['AUTH0_CLIENT_ID']
+    config.auth0.client_secret = ENV['AUTH0_CLIENT_SECRET']
+    config.auth0.domain = ENV['AUTH0_DOMAIN']
   end
 end

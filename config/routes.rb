@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   get 'quizzes/new'
   get 'quizzes/create'
   get 'quizzes/show'
-  devise_for :users # , controllers: {omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users , controllers: {omniauth_callbacks: 'users/omniauth_callbacks' }
   
-  get '/auth/auth0/callback' => 'auth0#callback'
+  # get '/auth/auth0/callback' => 'auth0#callback'
   get '/auth/failure' => 'auth0#failure'
   get '/auth/logout' => 'auth0#logout'
   
