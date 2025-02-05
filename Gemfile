@@ -26,6 +26,8 @@ gem 'turbo-rails'
 gem "stimulus-rails"
 gem 'httparty'
 
+gem "avo"
+
 group :development do
   gem "web-console"
   gem "listen"
