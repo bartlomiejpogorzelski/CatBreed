@@ -1,12 +1,6 @@
 class Avo::Resources::Cat < Avo::BaseResource
-  # self.includes = []
-  # self.attachments = []
-  # self.search = {
-  #   query: -> { query.ransack(id_eq: params[:q], m: "or").result(distinct: false) }
-  # }
-
+  
   def fields
-    field :id, as: :id
     field :name, as: :text
     field :breed, as: :text
     field :color, as: :text
@@ -25,13 +19,20 @@ class Avo::Resources::Cat < Avo::BaseResource
     field :videos, as: :text
     field :is_parent, as: :boolean
     field :photos, as: :has_many
-    # field :reservation, as: :has_one
+
     field :reservation, as: :text do |cat|
       if cat&.reservation
         "Rezerwacja nr #{cat.reservation.id}"
       else
         "Brak rezerwacji"
       end
-    end    
+    end
+  end
+
+  def actions
+    # Rails.logger.info "Ancestors of ApproveReservation: #{Avo::Actions::ApproveReservation.ancestors}"
+    action Avo::Actions::ApproveReservation
+    action Avo::Actions::AcceptSale
+    action Avo::Actions::CancelReservation
   end
 end
