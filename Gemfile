@@ -26,8 +26,6 @@ gem 'turbo-rails'
 gem "stimulus-rails"
 gem 'httparty'
 
-gem "avo"
-
 group :development do
   gem "web-console"
   gem "listen"
@@ -52,3 +50,4 @@ group :test do
 end
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+gem "avo", ">= 3.2"
