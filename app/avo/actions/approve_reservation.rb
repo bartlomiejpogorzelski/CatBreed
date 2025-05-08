@@ -1,0 +1,20 @@
+class Avo::Actions::ApproveReservation < Avo::BaseAction
+  self.name = "Zatwierdź rezerwację"
+  self.standalone = false
+
+  self.visible = -> { 
+    view.show? && resource.record.reservation_reported? 
+  }
+
+  def handle(**args)
+    query.each do |cat|
+      @reservation = Reservation.find(cat&.reservation&.id)   
+   
+      if (@reservation.update(deposit_paid: true) && @reservation.cat.update(status: :reserved))
+        succeed "Rezerwacja zatwierdzona dla kota #{cat.name}."
+      else
+        fail "Kot #{cat.name} nie ma rezerwacji."
+      end
+    end
+  end
+end

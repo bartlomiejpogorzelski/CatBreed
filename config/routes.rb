@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Avo::Engine, at: Avo.configuration.root_path
+  #mount Avo::Engine, at: "/admin"
   get 'quizzes/new'
   get 'quizzes/create'
   get 'quizzes/show'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create, :update]
   end
   namespace :admin do
-    resources :cats, only: [:index, :new, :create, :update]
+    # resources :cats, only: [:index, :new, :create, :update]
   end
 
   resources :contact_form, only: %i[new create]
