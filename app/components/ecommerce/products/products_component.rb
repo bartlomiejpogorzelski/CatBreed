@@ -2,7 +2,7 @@
 
 class Ecommerce::Products::ProductsComponent < ViewComponent::Base
 
-  def initialize()
+  def initialize(products:)
     @products = Product.all
   end
 end
