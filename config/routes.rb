@@ -23,6 +23,15 @@ Rails.application.routes.draw do
   resources :quizzes, only: [:index] do
     post :submit_answer, on: :member
   end
+
+  namespace :ecommerce do
+    resource :cart, only: [:show], controller: 'cart' do
+      post 'add/:product_id', to: 'cart#add', as: 'add'
+      delete 'remove/:product_id', to: 'cart#remove', as: 'remove'
+      delete 'clear', to: 'cart#clear', as: 'clear'
+    end
+  end
+
   get "/pages/:page" => "pages#show",  as: 'pages'
   get '/unauthorized', to: 'unauthorized#show', as: 'unauthorized'
 end
