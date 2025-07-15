@@ -1,0 +1,3 @@
+%div.products-list
+  - @products.each do |product|
+    = render Ecommerce::Products::ProductComponent.new(product: product)
