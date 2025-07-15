@@ -1,0 +1,24 @@
+%div.cart
+  %h2 Koszyk
+
+  - if @items.any?
+    %ul
+      - @items.each do |item|
+        %li
+          = item[:product].name
+          %span= "x#{item[:quantity]}"
+          %span= number_to_currency(item[:subtotal])
+          = button_to 'Usuń', remove_ecommerce_cart_path(item[:product]), method: :delete, class: "text-red-600", data: { turbo: false }
+
+    %div.total
+      %strong Suma:
+      = number_to_currency(@total_price)
+
+    = button_to 'Wyczyść koszyk', clear_ecommerce_cart_path, method: :delete, class: "btn btn-warning mt-2", data: { turbo: false }
+    = link_to 'Do kasy', '#', class: "btn btn-primary mt-2"
+  - else
+    %p Twój koszyk jest pusty.
+
+/// %h3 Przejdz do produktów
+/// = render Ecommerce::Products::ProductsComponent.new
+
