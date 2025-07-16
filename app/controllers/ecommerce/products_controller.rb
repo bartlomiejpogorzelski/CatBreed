@@ -5,4 +5,8 @@ class Ecommerce::ProductsController < ApplicationController
     render Ecommerce::Products::ProductsComponent.new(products: @products)
   end
   
+  def show
+    @product = Product.find(params[:id])
+    render Ecommerce::Products::ProductDetailsComponent.new(product: @product)
+  end
 end
