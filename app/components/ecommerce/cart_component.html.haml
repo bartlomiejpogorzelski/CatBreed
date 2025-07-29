@@ -15,6 +15,6 @@
       = number_to_currency(@total_price)
 
     = button_to 'Wyczyść koszyk', clear_ecommerce_cart_path, method: :delete, class: "btn btn-warning mt-2", data: { turbo: false }
-    = link_to 'Do kasy', '#', class: "btn btn-primary mt-2"
+    = button_to 'Do kasy', ecommerce_checkout_path, class: "btn btn-primary mt-2", data: { turbo: false }
   - else
     %p Twój koszyk jest pusty.

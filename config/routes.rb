@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       delete 'clear', to: 'cart#clear', as: 'clear'
     end
     resources :products, only: [:index, :show]
+    resource :checkout, only: [:create], controller: 'checkout'
+    get "checkout/success", to: "checkout#success", as: "checkout_success"
+    get "checkout/cancel", to: "checkout#cancel", as: "checkout_cancel"
   end
 
   get "/pages/:page" => "pages#show",  as: 'pages'
