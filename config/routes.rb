@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     resource :checkout, only: [:create], controller: 'checkout'
     get "checkout/success", to: "checkout#success", as: "checkout_success"
     get "checkout/cancel", to: "checkout#cancel", as: "checkout_cancel"
+
+    post "stripe/webhook", to: "stripe#webhook"
   end
 
   get "/pages/:page" => "pages#show",  as: 'pages'
