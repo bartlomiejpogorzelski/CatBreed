@@ -304,6 +304,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
+    stripe (15.3.0)
     strscan (3.1.0)
     tailwindcss-rails (2.0.32-x86_64-linux)
       railties (>= 6.0.0)
@@ -375,6 +376,7 @@ DEPENDENCIES
   shrine
   sprockets-rails
   stimulus-rails
+  stripe
   tailwindcss-rails
   test-prof (~> 1.2)
   turbo-rails
