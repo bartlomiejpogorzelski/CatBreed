@@ -4,5 +4,18 @@ class Order < ApplicationRecord
   has_many :products, through: :order_items
   has_one :shipment, dependent: :destroy
 
-  validates :total, numericality: { greater_than_or_equal_to: 0 }
+  enum status: { pending: 0, paid: 1, shipped: 2, cancelled: 3 }
+  validates :status, presence: true
+
+  before_save :update_total
+
+  def calculate_total
+    order_items.sum("quantity * unit_price")
+  end
+
+  private
+
+  def update_total
+    self.total = calculate_total
+  end
 end
