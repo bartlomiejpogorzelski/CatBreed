@@ -16,7 +16,29 @@ class Ecommerce::StripeController < ApplicationController
 
     case event.type
     when 'checkout.session.completed'
-      # reduce the number of products
+      session = event.data.object
+    
+      user = User.find_by(id: session.metadata.user_id)
+      cart_items = JSON.parse(session.metadata.cart)
+    
+      order = Order.create!(
+        user: user,
+        status: :paid,
+        paid_at: Time.current,
+        total: 0
+      )
+    
+      cart_items.each do |item|
+        product = Product.find(item["product_id"])
+    
+        order.order_items.create!(
+          product: product,
+          quantity: item["quantity"],
+          unit_price: product.price
+        )
+    
+        product.decrement!(:stock, item["quantity"])
+      end
     end
   
     head :ok
