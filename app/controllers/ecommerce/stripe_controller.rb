@@ -13,7 +13,7 @@ class Ecommerce::StripeController < ApplicationController
     rescue JSON::ParserError, Stripe::SignatureVerificationError => e
       return head :bad_request
     end
-
+    Rails.logger.info ">>> STRIPE EVENT TYPE: #{event.type}"
     case event.type
     when 'checkout.session.completed'
       session = event.data.object
@@ -36,7 +36,7 @@ class Ecommerce::StripeController < ApplicationController
           quantity: item["quantity"],
           unit_price: product.price
         )
-    
+
         product.decrement!(:stock, item["quantity"])
       end
     end
