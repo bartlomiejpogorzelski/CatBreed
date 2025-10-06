@@ -25,6 +25,7 @@ gem 'importmap-rails'
 gem 'turbo-rails'
 gem "stimulus-rails"
 gem 'httparty'
+gem 'stripe'
 
 group :development do
   gem "web-console"

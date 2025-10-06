@@ -1,0 +1,9 @@
+.product-card
+  %h3= @product.name
+  %p= number_to_currency(@product.price)
+
+  = button_to 'Dodaj do koszyka',
+      add_ecommerce_cart_path(product_id: @product.id),
+      method: :post,
+      class: "btn btn-sm btn-primary mt-2",
+      data: { turbo: false }

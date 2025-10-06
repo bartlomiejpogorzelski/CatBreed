@@ -23,6 +23,22 @@ Rails.application.routes.draw do
   resources :quizzes, only: [:index] do
     post :submit_answer, on: :member
   end
+
+  namespace :ecommerce do
+    resources :orders, only: [:index, :show]
+    resource :cart, only: [:show], controller: 'cart' do
+      post 'add/:product_id', to: 'cart#add', as: 'add'
+      delete 'remove/:product_id', to: 'cart#remove', as: 'remove'
+      delete 'clear', to: 'cart#clear', as: 'clear'
+    end
+    resources :products, only: [:index, :show]
+    resource :checkout, only: [:create], controller: 'checkout'
+    get "checkout/success", to: "checkout#success", as: "checkout_success"
+    get "checkout/cancel", to: "checkout#cancel", as: "checkout_cancel"
+
+    post "stripe/webhook", to: "stripe#webhook"
+  end
+
   get "/pages/:page" => "pages#show",  as: 'pages'
   get '/unauthorized', to: 'unauthorized#show', as: 'unauthorized'
 end

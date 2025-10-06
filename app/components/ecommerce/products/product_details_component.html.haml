@@ -1,0 +1,5 @@
+%div.product-details
+  %h2= @product.name
+  %p= @product.description
+  %p= number_to_currency(@product.price)
+  = button_to 'Add to Cart/Do koszyka', add_ecommerce_cart_path(product_id: @product.id), method: :post, data: { turbo: false }
