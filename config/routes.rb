@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   namespace :ecommerce do
+    resources :orders, only: [:index, :show]
     resource :cart, only: [:show], controller: 'cart' do
       post 'add/:product_id', to: 'cart#add', as: 'add'
       delete 'remove/:product_id', to: 'cart#remove', as: 'remove'

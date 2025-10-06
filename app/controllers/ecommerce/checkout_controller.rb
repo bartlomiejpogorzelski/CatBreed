@@ -9,7 +9,7 @@ class Ecommerce::CheckoutController < ApplicationController
       return
     end
 
-    session = Stripe::Checkout::Session.create(
+    checkout_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: cart.items.map do |item|
         {
@@ -25,15 +25,19 @@ class Ecommerce::CheckoutController < ApplicationController
       end,
       mode: 'payment',
       success_url: ecommerce_checkout_success_url,
-      cancel_url: ecommerce_cart_url
+      cancel_url: ecommerce_cart_url,
+      metadata: {
+        user_id: current_user&.id,
+        cart: cart.items.map { |item| { product_id: item.product.id, quantity: item.quantity } }.to_json
+      }
     )
 
-    redirect_to session.url, allow_other_host: true
-
+    redirect_to checkout_session.url, allow_other_host: true
   end
 
   def success
-    render plain: "Success"
+    CartService.new(session).clear
+    redirect_to ecommerce_orders_path
   end
 
   def cancel
