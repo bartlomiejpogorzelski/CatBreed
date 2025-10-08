@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_09_03_212502) do
+ActiveRecord::Schema[7.0].define(version: 2025_10_08_154920) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -132,8 +132,10 @@ ActiveRecord::Schema[7.0].define(version: 2025_09_03_212502) do
     t.datetime "updated_at", null: false
     t.bigint "cat_id"
     t.bigint "post_id"
+    t.bigint "product_id"
     t.index ["cat_id"], name: "index_photos_on_cat_id"
     t.index ["post_id"], name: "index_photos_on_post_id"
+    t.index ["product_id"], name: "index_photos_on_product_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -218,6 +220,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_09_03_212502) do
   add_foreign_key "orders", "users"
   add_foreign_key "photos", "cats"
   add_foreign_key "photos", "posts"
+  add_foreign_key "photos", "products"
   add_foreign_key "posts", "users"
   add_foreign_key "reservations", "cats"
   add_foreign_key "shipments", "orders"
