@@ -1,5 +1,33 @@
-%div.product-details
-  %h2= @product.name
-  %p= @product.description
-  %p= number_to_currency(@product.price)
-  = button_to 'Add to Cart/Do koszyka', add_ecommerce_cart_path(product_id: @product.id), method: :post, data: { turbo: false }
+%div.product-details.max-w-6xl.mx-auto.bg-white.rounded-2xl.shadow-lg.p-8.mt-10.grid.grid-cols-1.md:grid-cols-2.gap-10
+  %div
+    - if @product.photos.any?
+      = image_tag @product.photos.first.image_url, class: "w-full h-96 object-cover rounded-xl shadow-sm mb-4"
+      %div.thumbnails.flex.space-x-3.mt-2
+        - @product.photos.drop(1).each do |photo|
+          = image_tag photo.image_url, class: "w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition"
+    - else
+      %div.bg-gray-100.flex.items-center.justify-center.rounded-xl.h-96
+        %span.text-gray-400 Brak zdjęć
+  %div.flex.flex-col
+    - if @product.created_at > 1.week.ago
+      %span.bg-green-500.text-white.text-xs.font-semibold.px-3.py-1.rounded-full.uppercase.mb-3.inline-block Nowość
+
+    %h1.text-3xl.font-bold.text-gray-800= @product.name
+    %p.text-gray-500.mt-2= @product.description || "Brak opisu produktu"
+
+    - if @product.discount_price.present?
+      %p.text-gray-400.line-through.mt-4= number_to_currency(@product.price)
+      %p.text-red-600.text-2xl.font-semibold= number_to_currency(@product.discount_price)
+    - else
+      %p.text-gray-800.text-2xl.font-semibold.mt-4= number_to_currency(@product.price)
+
+    - if @product.stock > 0
+      %p.text-sm.text-green-600.mt-2 Dostępny (#{@product.stock} szt.)
+    - else
+      %p.text-sm.text-red-600.mt-2 Brak w magazynie
+
+    = form_with url: add_ecommerce_cart_path(product_id: @product.id), method: :post, local: true, data: { turbo: false } do |f|
+      .flex.items-center.space-x-2
+        = f.number_field :quantity, value: 1, min: 1, class: "border rounded-lg w-16 px-2 py-1 text-center"
+        = f.submit "Dodaj do koszyka", class: "bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+

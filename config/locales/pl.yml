@@ -90,6 +90,15 @@ pl:
       reserved: "Zarezerwowany"
       reservation_reported: "Zgłoszona rezerwacja"
       sold: "Sprzedany"
+  number:
+    currency:
+      format:
+        unit: "zł"
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        strip_insignificant_zeros: false
 
 
 
