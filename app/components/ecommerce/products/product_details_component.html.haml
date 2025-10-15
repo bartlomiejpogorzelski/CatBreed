@@ -2,6 +2,9 @@
   %div
     - if @product.photos.any?
       = image_tag @product.photos.first.image_url, class: "w-full h-96 object-cover rounded-xl shadow-sm mb-4"
+      %div.thumbnails.flex.space-x-3.mt-2
+        - @product.photos.drop(1).each do |photo|
+          = image_tag photo.image_url, class: "w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition"
     - else
       %div.bg-gray-100.flex.items-center.justify-center.rounded-xl.h-96
         %span.text-gray-400 Brak zdjęć
